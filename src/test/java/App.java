@@ -23,7 +23,7 @@ public class App
         //System.out.println(Arrays.toString(pokeObj));
         
         for (DataObjectPokemon i : pokeObj)
-        	if (i.getNom().equals("Bulbizarre"))
+        	if (i.getNom().equals("Goupix"))
         		System.out.println(i);
 	}
 
