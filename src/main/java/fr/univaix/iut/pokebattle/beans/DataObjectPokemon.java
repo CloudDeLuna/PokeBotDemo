@@ -1,6 +1,7 @@
 package fr.univaix.iut.pokebattle.beans;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class DataObjectPokemon {
     String nom;
@@ -108,8 +109,8 @@ public class DataObjectPokemon {
 		return forme;
 	}
 
-	public DataObjectAttack[] getAttaques() {
-		return attaques;
+	public List<DataObjectAttack> getAttaques() {
+		return Arrays.asList(attaques);
 	}
 
 	@Override
