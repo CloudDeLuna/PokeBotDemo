@@ -41,9 +41,9 @@ public class PokemonKOCellTest {
 		Pokemon poke2 = daoPoke.getByNom("@GwenGoupix");
 		
 		fight.setPoke1(poke1);
-		fight.setPoke_2(poke2);
-		fight.setOwner_1(daoOwner.getByPokemon(poke1).getPrenom());
-		fight.setOwner_2(daoOwner.getByPokemon(poke2).getPrenom());
+		fight.setPoke2(poke2);
+		fight.setOwner1(daoOwner.getByPokemon(poke1).getPrenom());
+		fight.setOwner2(daoOwner.getByPokemon(poke2).getPrenom());
 		fight.setIdCombat(daoCombat.getMaxNumCB());
 		
 		em.persist(fight);

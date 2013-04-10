@@ -77,27 +77,27 @@ public class Combat implements Serializable {
 	}
 
 
-	public void setPoke_2(Pokemon poke2e) {
+	public void setPoke2(Pokemon poke2e) {
 		poke2 = poke2e;
 	}
 
 
-	public String getOwner_1() {
+	public String getOwner1() {
 		return owner1;
 	}
 
 
-	public void setOwner_1(String owner1e) {
+	public void setOwner1(String owner1e) {
 		owner1 = owner1e;
 	}
 
 
-	public String getOwner_2() {
+	public String getOwner2() {
 		return owner2;
 	}
 
 
-	public void setOwner_2(String owner2e) {
+	public void setOwner2(String owner2e) {
 		owner2 = owner2e;
 	}
 

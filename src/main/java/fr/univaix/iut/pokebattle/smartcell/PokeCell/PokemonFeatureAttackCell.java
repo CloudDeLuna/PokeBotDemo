@@ -40,8 +40,6 @@ public class PokemonFeatureAttackCell implements SmartCell {
 				  
 				  boolean know = false;
 				  
-				  //System.out.println("Test de la connaissance de : " + attack);
-				  
 				  for (Attacks i : listAtt)
 				  {
 					  if (i.getAttack().equals(attack))
@@ -59,7 +57,6 @@ public class PokemonFeatureAttackCell implements SmartCell {
 				  {
 					  return "@" + question.getScreenName() + " O_o ?";
 				  }
-				  //Si on arrive là le pokemon connaît l'attaque demandée
 					  
 				  if ( question.getText().contains("#PP")) 
 			  	  { 

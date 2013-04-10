@@ -29,7 +29,6 @@ public class JudgeBattleCell implements SmartCell {
 		DAOCombat daoCb = daof.createDAOCombat();
 		DAOPokemon daoPoke = daof.createDAOPokemon();
 		
-		//"@nedseb #fight with @bulbizare1 /cc @viviane"
 		Pattern pattern1 = Pattern.compile("(@[^ ]+) #fight with (@[^ ]+) /cc (@[^ ]+)");
 		Matcher matcher1 = pattern1.matcher(question.getText());
 		
@@ -58,10 +57,10 @@ public class JudgeBattleCell implements SmartCell {
 				Combat cb = new Combat ();
 				int numCB = daoCb.getMaxNumCB();
 				cb.setIdCombat(numCB+1);
-				cb.setOwner_1(ow1.getPrenom());
+				cb.setOwner1(ow1.getPrenom());
 				cb.setPoke1(pokemon1);
-				cb.setOwner_2(nomDresseurAdversaire);
-				cb.setPoke_2(pokemon2);
+				cb.setOwner2(nomDresseurAdversaire);
+				cb.setPoke2(pokemon2);
 				daoCb.insert(cb);
 				return "skip";
 			}
@@ -83,7 +82,7 @@ public class JudgeBattleCell implements SmartCell {
 			if ( ow2.getPrenom().equals(nomDresseurAdversaire) )
 			{
 				Combat cb = daoCb.getByOwner(ow2.getPrenom());
-				cb.setPoke_2(pokemon2);
+				cb.setPoke2(pokemon2);
 				daoCb.update(cb);
 			}
 			else 
