@@ -13,7 +13,7 @@ import fr.univaix.iut.pokebattle.tuse.TwitterUserStreamEasy;
 import fr.univaix.iut.pokebattle.tuse.UserStreamAdapter;
 
 public class TwitterUserStreamEasyBuilder {
-    private final static Logger logger = LoggerFactory.getLogger(TwitterBot.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TwitterBot.class);
     private Credentials credentials;
     private Twitter twitter;
     private Bot bot;
@@ -28,7 +28,7 @@ public class TwitterUserStreamEasyBuilder {
         UserStreamListener listener = new UserStreamAdapter() {
             @Override
             public void onStatus(Status status) {
-                logger.info("TwitterUserStreamEasyExample.onStatus()");
+                LOGGER.info("TwitterUserStreamEasyExample.onStatus()");
                 try {
                     processNewQuestion(status, bot);
                 } catch (TwitterException e) {
@@ -41,7 +41,7 @@ public class TwitterUserStreamEasyBuilder {
 
     private void processNewQuestion(Status status, Bot bot) throws TwitterException {
         if (isNotANewQuestion(status)) {
-            logger.info("Ignored status change");
+            LOGGER.info("Ignored status change");
             return;
         }
 

@@ -16,7 +16,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 
 public class JudgeBattleCell implements SmartCell {
-	public String ask(Tweet question) throws IllegalStateException, TwitterException {	
+	public String ask(Tweet question) throws TwitterException {	
 		
 		DAOOwner daoOwn = DAOFactory.createDAOOwner();
 		DAOCombat daoCb = DAOFactory.createDAOCombat();

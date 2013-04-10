@@ -17,7 +17,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class PokemonCaptureCell implements SmartCell {
 
 	@Override
-	public String ask(Tweet question) throws IllegalStateException, TwitterException {
+	public String ask(Tweet question) throws TwitterException {
 		
 		if ( question.getText().contains("pokeball")) 
 		{

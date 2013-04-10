@@ -12,7 +12,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 public class JudgeBotPVCell implements SmartCell{
 
 	@Override
-	public String ask(Tweet question) throws IllegalStateException, TwitterException {
+	public String ask(Tweet question) throws TwitterException {
 		
 		if ( question.getText().contains("#attack")) 
 		{
@@ -22,7 +22,7 @@ public class JudgeBotPVCell implements SmartCell{
 			String[] phrase = question.getText().split(" ");
 			
 			Pokemon poke = daoPoke.getByNom(phrase[0]);
-			System.out.println(poke);
+
 			Owner owner = daoOwn.getByPokemon(poke);
 			
 			if (phrase[3].contains("@") )

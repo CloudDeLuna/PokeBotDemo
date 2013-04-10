@@ -11,7 +11,7 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class NursePVCell implements SmartCell {
 
-	public String ask(Tweet question) throws IllegalStateException, TwitterException {	
+	public String ask(Tweet question) throws TwitterException {	
 		
 		if ( question.getText().contains("#heal")) 
 		{

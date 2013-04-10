@@ -14,5 +14,5 @@ public interface SmartCell {
      * @throws TwitterException 
      * @throws IllegalStateException 
      */
-    public abstract String ask(Tweet question) throws IllegalStateException, TwitterException;
+    String ask(Tweet question) throws IllegalStateException, TwitterException;
 }
