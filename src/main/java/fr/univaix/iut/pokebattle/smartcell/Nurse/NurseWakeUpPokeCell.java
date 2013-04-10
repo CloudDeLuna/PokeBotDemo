@@ -1,9 +1,5 @@
 package fr.univaix.iut.pokebattle.smartcell.Nurse;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOOwner;

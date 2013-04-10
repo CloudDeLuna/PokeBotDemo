@@ -1,7 +1,5 @@
 package fr.univaix.iut.pokebattle.bot;
 
-import java.util.List;
-
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.smartcell.SmartCell;
 import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonAttackCell;

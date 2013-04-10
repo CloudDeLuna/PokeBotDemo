@@ -1,10 +1,5 @@
 package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
