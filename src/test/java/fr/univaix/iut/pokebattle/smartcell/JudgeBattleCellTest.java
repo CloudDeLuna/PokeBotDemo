@@ -15,10 +15,11 @@ public class JudgeBattleCellTest {
 	public void test() throws IllegalStateException, TwitterException {
 		
 		JudgeBattleCell cell = new JudgeBattleCell();
+		
 		assertEquals( "skip" ,cell.ask(new Tweet("cybsip","@CloudDeLuna #fight with @Smogogo13 /cc @Kyiio") ));
 		
 		
-		assertEquals( null ,cell.ask(new Tweet("CloudDeLuna","@cybsip #fight #ok with @GwenGoupix /cc @Kyiio") ));
+		assertEquals( "Round #1 /cc @cybsip @Smogogo13 @CloudDeLuna @GwenGoupix" ,cell.ask(new Tweet("CloudDeLuna","@cybsip #fight #ok with @GwenGoupix /cc @Kyiio") ));
 	}
 
 }

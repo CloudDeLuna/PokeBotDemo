@@ -27,7 +27,7 @@ public class DAOAttacksTest {
 		DAOFactory daof = new DAOFactory(em);
 		DAOPokemon daoPoke = daof.createDAOPokemon();
 		
-		Pokemon pokName = daoPoke.getByNom("@Smogogo13");
+		//Pokemon pokName = daoPoke.getByNom("@Smogogo13");
 		//Pokemon pokName = daoPoke.getByNom("@Dracaufeu13");
 		//Pokemon pokName = daoPoke.getByNom("@GwenGoupix");
         
@@ -60,4 +60,5 @@ public class DAOAttacksTest {
         em.getTransaction().commit();
 	}
 
-}*/
+}
+*/

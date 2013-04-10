@@ -44,11 +44,13 @@ public class TwitterUserStreamEasyBuilder {
             return;
         }
 
-        String response = bot.ask(new Tweet(status.getUser().getScreenName(), status.getText()));
-
+        String response = bot.ask(new Tweet("@"+twitter.getScreenName(), status.getUser().getScreenName(), status.getText()));
+        
         if (response != null) {
             twitter.updateStatus(response);
         }
+        
+        
     }
 
     private boolean isNotANewQuestion(Status status) throws TwitterException {

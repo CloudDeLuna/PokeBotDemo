@@ -53,15 +53,16 @@ CREATE TABLE ATTACKS
 
 CREATE TABLE COMBAT 
 (
-	NUM_CB INT,
+	NOM_JUGE VARCHAR(20), 
 	POKE_1 VARCHAR(20),
 	OWNER_1 VARCHAR(20), 
 	POKE_2 VARCHAR(20),
-	OWNER_2 VARCHAR(20), 
-	PRIMARY KEY(POKE_1,POKE_2),
+	OWNER_2 VARCHAR(20),
+	NUM_ROUND INT, 
+	PRIMARY KEY(NOM_JUGE),
 	FOREIGN KEY (POKE_1) REFERENCES OWNER(POKEMON),
 	FOREIGN KEY (POKE_2) REFERENCES OWNER(POKEMON)
 );
-insert into COMBAT values ( 0 , 'INCONNU' , NULL , 'INCONNU' , NULL );
-insert into COMBAT values ( 1 , '@Smogogo13' , '@cybsip' , '@GwenGoupix' ,  '@CloudDeLuna' ) ;
+insert into COMBAT values ( 'INCONNU' , 'INCONNU' , NULL , 'INCONNU' , NULL , 0 );
+insert into COMBAT values ( '@Kyiio' , '@Smogogo13' , '@cybsip' , '@GwenGoupix' ,  '@CloudDeLuna' , 0) ;
 

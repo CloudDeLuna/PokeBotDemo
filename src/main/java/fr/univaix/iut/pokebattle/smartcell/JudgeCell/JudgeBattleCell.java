@@ -30,10 +30,10 @@ public class JudgeBattleCell implements SmartCell {
 		DAOPokemon daoPoke = daof.createDAOPokemon();
 		
 		//"@nedseb #fight with @bulbizare1 /cc @viviane"
-		Pattern pattern1 = Pattern.compile("(@[^ ]+) #fight with (@[^ ]+) /cc (@[^ ]+)");
+		Pattern pattern1 = Pattern.compile("(@[^ ]+) #fight with (@[^ ]+) /cc (@[^ ]+) #[^ ]");
 		Matcher matcher1 = pattern1.matcher(question.getText());
 		
-		Pattern pattern2 = Pattern.compile("(@[^ ]+) #fight #ok with (@[^ ]+) /cc (@[^ ]+)");
+		Pattern pattern2 = Pattern.compile("(@[^ ]+) #fight #ok with (@[^ ]+) /cc (@[^ ]+) #[^ ]");
 		Matcher matcher2 = pattern2.matcher(question.getText());
 		
 		if(matcher1.matches())
@@ -46,7 +46,7 @@ public class JudgeBattleCell implements SmartCell {
 			Pokemon pokemon1 = daoPoke.getByNom(nomPokemon);
 			if ( pokemon1 == null )
 			{
-				return null;
+				return "Poke inexistant";
 			}
 			Owner ow1 = daoOwn.getByPokemon(pokemon1);
 			
@@ -56,12 +56,12 @@ public class JudgeBattleCell implements SmartCell {
 			{
 				
 				Combat cb = new Combat ();
-				int numCB = daoCb.getMaxNumCB();
+				int numCB = daoCb.getMaxNumCB().getIdCombat();
 				cb.setIdCombat(numCB+1);
-				cb.setOwner_1(ow1.getPrenom());
-				cb.setPoke_1(pokemon1);
-				cb.setOwner_2(nomDresseurAdversaire);
-				cb.setPoke_2(pokemon2);
+				cb.setOwner1(ow1.getPrenom());
+				cb.setPoke1(pokemon1);
+				cb.setOwner2(nomDresseurAdversaire);
+				cb.setPoke2(pokemon2);
 				daoCb.insert(cb);
 				return "skip";
 			}
@@ -72,7 +72,7 @@ public class JudgeBattleCell implements SmartCell {
 		}
 		else if (matcher2.matches())
 		{
-			//System.out.println("Battle OK");
+
 			String nomDresseur = matcher2.group(1);
 			String nomPokemonAdversaire = matcher2.group(2);
 			
@@ -83,8 +83,11 @@ public class JudgeBattleCell implements SmartCell {
 			if ( ow2.getPrenom().equals(nomDresseurAdversaire) )
 			{
 				Combat cb = daoCb.getByOwner(ow2.getPrenom());
-				cb.setPoke_2(pokemon2);
+				cb.setPoke2(pokemon2);
+				cb.setNumRound(1);
 				daoCb.update(cb);
+				return "Round #"+cb.getNumRound() +" /cc "+cb.getOwner1() + " " + cb.getPoke1().getNom()
+						+ " " + cb.getOwner2() + " " + cb.getPoke2().getNom();
 			}
 			else 
 			{

@@ -51,12 +51,12 @@ public class DAOCombat {
 		}
 	}
 	
-	public int getMaxNumCB ()
+	public Combat getMaxNumCB ()
 	{
 		
 		TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.GET_MAX_NUM_CB , Combat.class);
-		
-		return query.getFirstResult();
+
+		return query.getSingleResult();
 	}
 	
 	public Combat insert (Combat combat)

@@ -32,18 +32,16 @@ public class PokemonKOCell implements SmartCell {
 			String[] phrase = question.getText().split(" ");
 			Pokemon Poke = daoPoke.getByNom(phrase[0]);
 			Combat Cb = daocombat.getByPokemon(Poke);
-			Pokemon poke1 = Cb.getPoke_1();
-			Pokemon poke2 = Cb.getPoke_2();
+			Pokemon poke1 = Cb.getPoke1();
+			Pokemon poke2 = Cb.getPoke2();
 			
 			
 			
 			DAOOwner daoow = daof.createDAOOwner();
 			Owner ow1 = daoow.getByPokemon(poke1);
 			Owner ow2 = daoow.getByPokemon(poke2);
-			
-			
+
 			int PVPoke = Poke.getPV();
-			System.out.println(PVPoke);
 			
 			if (PVPoke == 0 || PVPoke < 0 )
 			{
