@@ -78,7 +78,7 @@ public class PokemonFeatureAttackCell implements SmartCell {
 					  return "@" + question.getScreenName() + " #" + attEnCours.getAttack() +  " #NIVEAU=" 
 							  + attEnCours.getNiveau();
 				  }
-	  		}//if ( question.getText().contains("#statAttack")) 
+	  		}
 	  
 	 	return null;
 	  	

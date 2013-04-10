@@ -124,66 +124,6 @@ public class Combat implements Serializable {
 		return result;
 	}
 
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-		{
-			return true;
-		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		Combat other = (Combat) obj;
-		if (idCombat != other.idCombat)
-		{
-			return false;
-		}
-		if (owner1 == null) {
-			if (other.owner1 != null)
-			{
-				return false;
-			}
-		} else if (!owner1.equals(other.owner1))
-		{
-			return false;
-		}
-		if (owner2 == null) {
-			if (other.owner2 != null)
-			{
-				return false;
-			}
-		} else if (!owner2.equals(other.owner2))
-		{
-			return false;
-		}
-		if (poke1 == null) {
-			if (other.poke1 != null)
-			{
-				return false;
-			}
-		} else if (!poke1.equals(other.poke1))
-		{
-			return false;
-		}
-		if (poke2 == null) {
-			if (other.poke2 != null)
-			{
-				return false;
-			}
-		} else if (!poke2.equals(other.poke2))
-		{
-			return false;
-		}
-		return true;
-	}
-
-
 	@Override
 	public String toString() {
 		return "Combat [IdCombat=" + idCombat + ", Poke_1=" + poke1.getNom()

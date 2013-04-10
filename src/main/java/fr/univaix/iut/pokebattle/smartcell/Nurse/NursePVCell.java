@@ -19,7 +19,6 @@ public class NursePVCell implements SmartCell {
 		
 		if ( question.getText().contains("#heal")) 
 		{
-			//Twitter twitter = TwitterFactory.getSingleton();
 			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
 	        EntityManager em = emf.createEntityManager();
 			DAOFactory daof = new DAOFactory(em);
@@ -27,14 +26,12 @@ public class NursePVCell implements SmartCell {
 			DAOPokemon daoPoke = daof.createDAOPokemon();
 			
 			String[] phrase = question.getText().split(" ");
-			Pokemon Poke = daoPoke.getByNom(phrase[2]);
-			Owner owner = daoOwn.getByPokemon(Poke);
+			Pokemon poke = daoPoke.getByNom(phrase[2]);
+			Owner owner = daoOwn.getByPokemon(poke);
 
 			if ( owner.getPrenom().equals("@" + question.getScreenName())) 
 			{
-				Poke = daoPoke.getByNom(phrase[2]);
-				
-				int PVPoke = Poke.getPV();
+				poke = daoPoke.getByNom(phrase[2]);
 				
 		        return phrase[2] + " #stat #PV ?" ;
 			}

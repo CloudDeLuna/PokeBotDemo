@@ -28,8 +28,6 @@ public class NursePokeCenterCell implements SmartCell {
 			DAOOwner daoOwn = daof.createDAOOwner();
 			DAOPokemon daoPoke = daof.createDAOPokemon();
 			
-			String[] phrase = question.getText().split(" ");
-			
 			String pokeName = question.getScreenName();
 	
 			Pokemon poke = daoPoke.getByNom(pokeName);
@@ -39,26 +37,19 @@ public class NursePokeCenterCell implements SmartCell {
 			{
 				return pokeName + " full life /cc " + owner.getPrenom();
 			}
-					
-			//Twitter twitter = question.getTwitter();
-			
+
 			String[] dieze = question.getText().split("#");
-			System.out.println(dieze[1]);
 			String[] egale = dieze[1].split("=");
-			System.out.println(egale[1]);
 			String[] nombre = egale[1].split("/");
-			System.out.println(nombre[0]);
-			System.out.println(nombre[1]);
 			
 			int timewu = (Integer.parseInt(nombre[1]) - Integer.parseInt(nombre[0]))/10;
-			System.out.println(timewu);
 			
-			twitter.updateStatus("@PokeTimer #WakeMeUp 1 Min #MaxHealth " 
+			twitter.updateStatus("@PokeTimer #WakeMeUp "+ timewu +" Min #MaxHealth " 
 									+ nombre[1] 
 											+ " " 
 									+ pokeName + " " 
-											+ owner.getPrenom());			
-	
+											+ owner.getPrenom() + " cc");			
+			
 		    return pokeName + " come in the #pokecenter /cc " + owner.getPrenom();
 
 		}

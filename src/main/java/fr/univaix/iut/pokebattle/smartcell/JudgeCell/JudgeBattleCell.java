@@ -71,7 +71,6 @@ public class JudgeBattleCell implements SmartCell {
 		}
 		else if (matcher2.matches())
 		{
-			//System.out.println("Battle OK");
 			String nomDresseur = matcher2.group(1);
 			String nomPokemonAdversaire = matcher2.group(2);
 			

@@ -22,8 +22,8 @@ public class NurseBotTest {
 	}
 	
 	@Test
-	public void testHeal() throws IllegalStateException, TwitterException {
-        assertEquals(" ", nurseBot.ask(new Tweet("@GwenGoupix", "@JoelleBourgPalet #PV =0/100")));
+	public void testFulllife() throws IllegalStateException, TwitterException {
+        assertEquals("@GwenGoupix come in the #pokecenter /cc @CloudDeLuna", nurseBot.ask(new Tweet("@GwenGoupix", "@JoelleBourgPalet #PV =90/100")));
 	}
 	
 	@Test

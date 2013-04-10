@@ -9,13 +9,17 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class NurseBot implements Bot {
    
-	 final SmartCell[] smartCells = new SmartCell[]{
+	 private final SmartCell[] smartCells = new SmartCell[]{
 			 new NursePVCell(),
 			 new NursePokeCenterCell(),
 			 new NurseWakeUpPokeCell(),
 	 };
 	 
-    /**
+    public SmartCell[] getSmartCells() {
+		return smartCells;
+	}
+
+	/**
      * Ask something to Bot, it will respond to you.
      *
      * @param question The question you ask.
@@ -29,7 +33,9 @@ public class NurseBot implements Bot {
             String answer; 
             answer = cell.ask(question);
             if (answer != null)
+            {
                 return answer;
+            }
         }
         return null;
     }

@@ -59,46 +59,6 @@ public final class Pokedex {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-		{
-			return true;
-		}
-		if (obj == null)
-		{
-			return false;
-		}
-		if (getClass() != obj.getClass())
-		{
-			return false;
-		}
-		Pokedex other = (Pokedex) obj;
-		if (br == null) {
-			if (other.br != null)
-			{
-				return false;
-			}
-		} else if (!br.equals(other.br))
-		{
-			return false;
-		}
-		if (!Arrays.equals(data, other.data))
-		{
-			return false;
-		}
-		if (gson == null) {
-			if (other.gson != null)
-			{
-				return false;
-			}
-		} else if (!gson.equals(other.gson))
-		{
-			return false;
-		}
-		return true;
-	}
-
-	@Override
 	public String toString() {
 		return "Pokedex [data=" + Arrays.toString(data) + "]";
 	}
