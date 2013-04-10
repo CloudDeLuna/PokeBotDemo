@@ -32,7 +32,7 @@ public class JudgeBotPVCell implements SmartCell{
 			}
 			else 
 			{
-				int pVPerdu = 10;
+				final int pVPerdu = 10;
 				int pVPoke = poke.getPV();
 				poke.setPV(pVPoke-pVPerdu);
 				daoPoke.persist(poke);
