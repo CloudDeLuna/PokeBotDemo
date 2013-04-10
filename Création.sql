@@ -51,6 +51,7 @@ CREATE TABLE ATTACKS
 	PRIMARY KEY (POKEMON, ATTACK),FOREIGN KEY(POKEMON) REFERENCES OWNER(POKEMON)
    );
 
+<<<<<<< HEAD
 CREATE TABLE COMBAT 
 (
 	NUM_CB INT,
@@ -64,4 +65,7 @@ CREATE TABLE COMBAT
 );
 insert into COMBAT values ( 0 , 'INCONNU' , NULL , 'INCONNU' , NULL );
 insert into COMBAT values ( 1 , '@Smogogo13' , '@cybsip' , '@GwenGoupix' ,  '@CloudDeLuna' ) ;
+=======
+
+>>>>>>> F-18-Test
 
