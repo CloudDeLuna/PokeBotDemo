@@ -2,7 +2,7 @@ package fr.univaix.iut.pokebattle.run;
 
 import fr.univaix.iut.pokebattle.bot.NurseBot;
 
-public class NurseMain {
+public final class NurseMain {
 	
     private NurseMain() {
 		super();

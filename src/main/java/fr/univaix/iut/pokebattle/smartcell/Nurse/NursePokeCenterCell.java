@@ -36,7 +36,7 @@ public class NursePokeCenterCell implements SmartCell {
 			String[] egale = dieze[1].split("=");
 			String[] nombre = egale[1].split("/");
 			
-			int dix = 10;
+			final int dix = 10;
 			
 			int timewu = (Integer.parseInt(nombre[1]) - Integer.parseInt(nombre[0]))/dix;
 			

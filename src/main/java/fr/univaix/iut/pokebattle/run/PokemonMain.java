@@ -3,7 +3,7 @@ package fr.univaix.iut.pokebattle.run;
 import fr.univaix.iut.pokebattle.bot.JudgeBot;
 import fr.univaix.iut.pokebattle.bot.PokeBot;
 
-public class PokemonMain {
+public final class PokemonMain {
 	
     private PokemonMain() {
 		super();

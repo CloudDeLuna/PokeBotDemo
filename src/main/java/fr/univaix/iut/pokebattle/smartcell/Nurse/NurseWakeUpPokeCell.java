@@ -19,8 +19,8 @@ public class NurseWakeUpPokeCell implements SmartCell {
 			DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 			
 			String[] phrase = question.getText().split(" ");
-			int trois = 3;
-			int quatre = 4;
+			final int trois = 3;
+			final int quatre = 4;
 			Pokemon poke = daoPoke.getByNom(phrase[quatre]);
 			Owner owner = daoOwn.getByPokemon(poke);
 			

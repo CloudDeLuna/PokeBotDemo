@@ -17,10 +17,10 @@ public class PokemonAttackCell implements SmartCell {
 				DAOOwner daoOwn = DAOFactory.createDAOOwner();
 				DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 				
-				int deux = 2;
-				int trois = 3;
-				int cinq = 5;
-				int six = 6;
+				final int deux = 2;
+				final int trois = 3;
+				final int cinq = 5;
+				final int six = 6;
 				
 				String[] phrase = question.getText().split(" ");
 				Pokemon poke = daoPoke.getByNom(phrase[0]);

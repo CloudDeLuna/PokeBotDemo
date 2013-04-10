@@ -8,7 +8,7 @@ import fr.univaix.iut.pokebattle.twitter.TwitterBot;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class BotRunner {
+public final class BotRunner {
 	
     private BotRunner() {
 		super();
