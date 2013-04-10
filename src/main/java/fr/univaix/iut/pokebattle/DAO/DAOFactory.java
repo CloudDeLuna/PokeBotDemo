@@ -6,7 +6,13 @@ public class DAOFactory {
 	
 	private static EntityManager entityManager;
 	
-    public static synchronized void setEntityManager(EntityManager entityManager){
+	
+	
+    private DAOFactory() {
+		super();
+	}
+
+	public static synchronized void setEntityManager(EntityManager entityManager){
     	DAOFactory.entityManager = entityManager;
     }
 

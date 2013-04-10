@@ -23,7 +23,6 @@ public class JudgeBattleCellTest {
     	EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
         EntityManager em = emf.createEntityManager();
         DAOFactory.setEntityManager(em);
-        
     }
 	
 	@Test

@@ -9,7 +9,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class BotRunner {
-    public static void runBot(Bot bot, String credentialsFileName) {
+	
+    private BotRunner() {
+		super();
+	}
+
+	public static void runBot(Bot bot, String credentialsFileName) {
         try {
             InputStream inputStream = getResourceAsStream(credentialsFileName);
             Credentials credentials = Credentials.loadCredentials(inputStream);

@@ -16,7 +16,7 @@ public class PokemonFeatureCell implements SmartCell {
 	  	      String[] phrase = question.getText().split(" ");
 	  		  DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 			  Pokemon poke = daoPoke.getByNom(phrase[0]);
-
+			  
 			  if( question.getText().contains("#race")) 
 		  	  {
 		  	   	return "@" + question.getScreenName() + " #race = " + poke.getRace() ;
@@ -46,26 +46,29 @@ public class PokemonFeatureCell implements SmartCell {
 		  	  else if( question.getText().contains("#DEFSPE")) 
 		  	  {
 		  			return "@" + question.getScreenName() + " #DEFSPE = " + poke.getDefenseSpecial();
-
 		  	  }
-		  	  
-		  	  else if( question.getText().contains("#ATT")) 
-		  	  {
-		  			return "@" + question.getScreenName() + " #ATT = " + poke.getAttack();
-
-		  	  }
-		  	  else if( question.getText().contains("#DEF")) 
-		  	  {
-		  			return "@" + question.getScreenName() + " #DEF = " + poke.getDefense();
-
-		  	  }
-
-		  	  else if( question.getText().contains("#VIT")) 
-		  	  {
-		  			return "@" + question.getScreenName() + " #VIT = " + poke.getSpeed();
-
-		  	  }
+			  return ask2(question, poke);
   		}
 	 	return null;
-	 }//ask()  
+	 }//ask()
+	  
+	  public String ask2 (Tweet question, Pokemon poke)
+	  {
+	  	  if( question.getText().contains("#ATT")) 
+	  	  {
+	  			return "@" + question.getScreenName() + " #ATT = " + poke.getAttack();
+
+	  	  }
+	  	  else if( question.getText().contains("#DEF")) 
+	  	  {
+	  			return "@" + question.getScreenName() + " #DEF = " + poke.getDefense();
+
+	  	  }
+
+	  	  else if( question.getText().contains("#VIT")) 
+	  	  {
+	  			return "@" + question.getScreenName() + " #VIT = " + poke.getSpeed();
+	  	  }
+		  return null;
+	  }
 }//class
