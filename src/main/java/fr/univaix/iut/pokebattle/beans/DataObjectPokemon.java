@@ -30,7 +30,7 @@ public class DataObjectPokemon {
                              int captureval, String capspe1,
                              String capspe2, String couleur, int forme, 
                              DataObjectAttack[] attaquess) {
-    	DataObjectAttack[] attaques = attaquess.clone(); 
+    	DataObjectAttack[] listAttaques = attaquess.clone(); 
         this.nom = nom;
         this.espece = espece;
         this.taille = taille;
@@ -46,7 +46,7 @@ public class DataObjectPokemon {
         this.capspe2 = capspe2;
         this.couleur = couleur;
         this.forme = forme;
-        this.attaques = attaques;
+        this.attaques = listAttaques;
     }
 
     public String getNom() {
