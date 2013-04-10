@@ -19,11 +19,12 @@ public class NurseWakeUpPokeCell implements SmartCell {
 			DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 			
 			String[] phrase = question.getText().split(" ");
-
-			Pokemon poke = daoPoke.getByNom(phrase[4]);
+			int trois = 3;
+			int quatre = 4;
+			Pokemon poke = daoPoke.getByNom(phrase[quatre]);
 			Owner owner = daoOwn.getByPokemon(poke);
 			
-			poke.setPV(Integer.parseInt(phrase[3]));
+			poke.setPV(Integer.parseInt(phrase[trois]));
 			daoPoke.persist(poke);
 			
 		   return owner.getPrenom() + " " + poke.getNom() + " is restored to full health";

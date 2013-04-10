@@ -8,7 +8,7 @@ import fr.univaix.iut.pokebattle.smartcell.JudgeCell.JudgeBotWinnerCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 
-public class JudgeBot implements Bot {
+public final class JudgeBot implements Bot {
     /**
      * List of smartcell the questions go through to
      * find an answer.

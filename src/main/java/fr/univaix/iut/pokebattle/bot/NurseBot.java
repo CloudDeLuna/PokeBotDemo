@@ -7,7 +7,7 @@ import fr.univaix.iut.pokebattle.smartcell.Nurse.NursePokeCenterCell;
 import fr.univaix.iut.pokebattle.smartcell.Nurse.NurseWakeUpPokeCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
-public class NurseBot implements Bot {
+public final class NurseBot implements Bot {
    
 	 private final SmartCell[] smartCells = new SmartCell[]{
 			 new NursePVCell(),

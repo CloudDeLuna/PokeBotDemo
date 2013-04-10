@@ -36,7 +36,9 @@ public class NursePokeCenterCell implements SmartCell {
 			String[] egale = dieze[1].split("=");
 			String[] nombre = egale[1].split("/");
 			
-			int timewu = (Integer.parseInt(nombre[1]) - Integer.parseInt(nombre[0]))/10;
+			int dix = 10;
+			
+			int timewu = (Integer.parseInt(nombre[1]) - Integer.parseInt(nombre[0]))/dix;
 			
 			twitter.updateStatus("@PokeTimer #WakeMeUp "+ timewu +" Min #MaxHealth " 
 									+ nombre[1] 

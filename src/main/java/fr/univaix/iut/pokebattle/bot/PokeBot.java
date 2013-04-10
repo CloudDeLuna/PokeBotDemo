@@ -11,7 +11,7 @@ import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonKOCell;
 import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonOwnerCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
-public class PokeBot implements Bot {
+public final class PokeBot implements Bot {
     /**
      * List of smartcell the questions go through to
      * find an answer.

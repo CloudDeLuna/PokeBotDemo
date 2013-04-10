@@ -24,16 +24,16 @@ public class JudgeBotPVCell implements SmartCell{
 			Pokemon poke = daoPoke.getByNom(phrase[0]);
 
 			Owner owner = daoOwn.getByPokemon(poke);
-			
-			if (phrase[3].contains("@") )
+			int trois = 3;
+			if (phrase[trois].contains("@") )
 			{
 				return "salut";
 			}
 			else 
 			{
-				
+				int pVPerdu = 10;
 				int pVPoke = poke.getPV();
-				poke.setPV(pVPoke-10);
+				poke.setPV(pVPoke-pVPerdu);
 				daoPoke.persist(poke);
 				
 				return phrase[0] + " -10pv /cc " + owner.getPrenom();

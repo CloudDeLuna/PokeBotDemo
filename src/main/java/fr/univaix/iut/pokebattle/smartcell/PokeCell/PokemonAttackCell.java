@@ -17,15 +17,20 @@ public class PokemonAttackCell implements SmartCell {
 				DAOOwner daoOwn = DAOFactory.createDAOOwner();
 				DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 				
+				int deux = 2;
+				int trois = 3;
+				int cinq = 5;
+				int six = 6;
+				
 				String[] phrase = question.getText().split(" ");
 				Pokemon poke = daoPoke.getByNom(phrase[0]);
 				Owner owner = daoOwn.getByPokemon(poke);
 									
 	
-					if ( owner.getPrenom().equals("@" + question.getScreenName()) && phrase[3].contains("@")) 
+					if ( owner.getPrenom().equals("@" + question.getScreenName()) && phrase[trois].contains("@")) 
 					{
 
-				        return phrase[3] + " #attack " + phrase[2] + " /cc " + phrase[5] + " " + owner.getPrenom() + " " + phrase[6];  
+				        return phrase[trois] + " #attack " + phrase[deux] + " /cc " + phrase[cinq] + " " + owner.getPrenom() + " " + phrase[six];  
 					}
 					else
 					{
