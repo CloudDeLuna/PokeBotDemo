@@ -28,7 +28,7 @@ public class NurseBot implements Bot {
      * @throws IllegalStateException 
      */
     @Override
-    public String ask(Tweet question) throws IllegalStateException, TwitterException {
+    public String ask(Tweet question) throws TwitterException {
         for (SmartCell cell : smartCells) {
             String answer; 
             answer = cell.ask(question);

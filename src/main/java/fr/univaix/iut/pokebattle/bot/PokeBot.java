@@ -40,7 +40,7 @@ public class PokeBot implements Bot {
      * @throws IllegalStateException 
      */
     @Override
-    public String ask(Tweet question) throws IllegalStateException, TwitterException {
+    public String ask(Tweet question) throws TwitterException {
         for (SmartCell cell : smartCells) {
             String answer = cell.ask(question);
             if (answer != null)
