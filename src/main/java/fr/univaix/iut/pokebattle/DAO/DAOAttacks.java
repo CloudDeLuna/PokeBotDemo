@@ -32,19 +32,6 @@ public class DAOAttacks {
 		}
 	}
 	
-	public int computeNbAttacks( String pokemon ){
-		try{
-			
-			TypedQuery<Attacks> query = entityManager.createNamedQuery(Attacks.COUNT_ATTA , Attacks.class);
-			query.setParameter("pokemon", pokemon);
-			return query.getFirstResult();
-		}
-		catch(java.util.NoSuchElementException ex)
-		{
-			return 0;
-		}
-	}
-	
 	public List<Attacks> findAll ( ){
 		try{	
 			

@@ -1,5 +1,4 @@
 package fr.univaix.iut.pokebattle.DAO;
-
 import static org.fest.assertions.Assertions.assertThat;
 
 import java.sql.Connection;
@@ -19,16 +18,16 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import fr.univaix.iut.pokebattle.beans.Attacks;
+import fr.univaix.iut.pokebattle.beans.Owner;
 
-public class DAOAttacksTest {
+public class DAOOwnerTest {
 
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
 
-    private DAOAttacks dao = DAOFactory.createDAOAttacks();
+    private DAOOwner dao = DAOFactory.createDAOOwner();
     private DAOPokemon daoP = DAOFactory.createDAOPokemon();
 
     @BeforeClass
@@ -62,15 +61,39 @@ public class DAOAttacksTest {
 
     @Test
     public void testFindAll() throws Exception {
-        List<Attacks> attaques = dao.findAll();
-        assertThat(attaques.get(0).getAttack()).isEqualTo("Feu-Follet");
-        assertThat(attaques.get(1).getAttack()).isEqualTo("Flammeche");
+        List<Owner> owners = dao.findAll();
+        assertThat(owners.get(0).getPrenom()).isEqualTo("@CloudDeLuna");
+        assertThat(owners.get(1).getPrenom()).isEqualTo("@cybsip");
     }
 
     @Test
-    public void testFindByPokemon() throws Exception {
-    	List<Attacks> attaques = dao.findByPokemon(daoP.getByNom("@GwenGoupix"));
-        assertThat(attaques.get(0)).isNotNull();
+    public void testFindByPrenom() throws Exception {
+    	List<Owner> owners = dao.findByPrenom("@CloudDeLuna");
+        assertThat(owners.get(0).getPokemon().getNom()).isEqualTo("@GwenGoupix");
+        assertThat(owners.get(1).getPokemon().getNom()).isEqualTo("@Dracaufeu13");
     }
     
+    @Test
+    public void testGetByPokemon() throws Exception {
+    	assertThat(dao.getByPokemon(daoP.getByNom("@GwenGoupix"))).isNotNull();
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+        dao.delete(dao.getByPokemon(daoP.getByNom(("@GwenGoupix"))));
+        assertThat(dao.getByPokemon(daoP.getByNom(("@GwenGoupix")))).isNull();
+    }
+
+    @Test
+    public void testInsert() throws Exception {
+    	dao.delete(dao.getByPokemon(daoP.getByNom(("@GwenGoupix"))));
+    	
+        Owner sacha = new Owner();
+        
+        sacha.setPokemon(daoP.getByNom(("@GwenGoupix")));
+        sacha.setPrenom("@sacha");
+        dao.persist(sacha);
+        assertThat(dao.getByPokemon(daoP.getByNom(("@GwenGoupix"))).getPrenom()).isEqualTo("@sacha");
+        assertThat(dao.getByPokemon(daoP.getByNom(("@GwenGoupix"))).getPokemon().getNom()).isEqualTo("@GwenGoupix");
+    }
 }

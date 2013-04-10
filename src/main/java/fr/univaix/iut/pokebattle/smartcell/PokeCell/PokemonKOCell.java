@@ -24,20 +24,17 @@ public class PokemonKOCell implements SmartCell {
 			Combat cb = daocombat.getByPokemon(poke);
 			Pokemon poke1 = cb.getPoke1();
 			Pokemon poke2 = cb.getPoke2();
-			
-			
-			
+
 			DAOOwner daoow = DAOFactory.createDAOOwner();
 			Owner ow1 = daoow.getByPokemon(poke1);
 			Owner ow2 = daoow.getByPokemon(poke2);
-			
 			
 			int pVPoke = poke.getPV();
 			
 			if (pVPoke == 0 || pVPoke < 0 )
 			{
 				return "#KO /cc @" + question.getScreenName() + " " 
-			+ (poke.equals(poke1) ? ow2.getPrenom() : ow1.getPrenom()) + " " + (poke.equals(poke1) ? ow1.getPrenom() : ow2.getPrenom()) ;
+						+ (poke.equals(poke1) ? ow2.getPrenom() : ow1.getPrenom()) + " " + (poke.equals(poke1) ? ow1.getPrenom() : ow2.getPrenom()) ;
 			}
 			else
 			{

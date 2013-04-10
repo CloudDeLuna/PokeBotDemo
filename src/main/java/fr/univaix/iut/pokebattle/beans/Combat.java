@@ -22,7 +22,7 @@ public class Combat implements Serializable {
 
 	public static final String GET_BY_NOM = "findCombatEnCoursByPokemon";
 	public static final String GET_BY_OWNER = "findCombatEnCoursByOwner";
-	public static final String GET_MAX_NUM_CB = "findMaxNumCB";
+	public static final String GET_MAX_NUM_CB = "GetMaxNumCB";
 	
 	
 	@Id 

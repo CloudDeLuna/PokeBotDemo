@@ -92,6 +92,17 @@ public class DAOPokemon {
 		this.entityManager.getTransaction().begin();
 		this.entityManager.persist(poke);
 		this.entityManager.getTransaction().commit();
-	}	
+	}
+	
+  public boolean delete(Pokemon poke) {
+        try {
+        	this.entityManager.getTransaction().begin();
+            entityManager.remove(poke);
+            this.entityManager.getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 	
 }

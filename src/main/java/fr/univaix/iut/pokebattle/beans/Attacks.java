@@ -14,7 +14,6 @@ import javax.persistence.NamedQuery;
 @Entity @IdClass(AttacksPK.class) 
 @NamedQueries({
     @NamedQuery(name = Attacks.FIND_BY_POKE, query = "SELECT at FROM Attacks at WHERE at.poke = :pokemon"),
-    @NamedQuery(name = Attacks.COUNT_ATTA, query = "SELECT COUNT(at.attack) FROM Attacks at WHERE at.poke = :pokemon"),
     @NamedQuery(name = Attacks.FIND_ALL, query = "SELECT at FROM Attacks at "),
 })
 public class Attacks implements Serializable{
@@ -22,7 +21,6 @@ public class Attacks implements Serializable{
 	private static final long serialVersionUID = 8869596535250990885L;
 	
 	public static final String FIND_BY_POKE = "findByPoke";
-	public static final String COUNT_ATTA = "CountAtta";
 	public static final String FIND_ALL = "findAllAttacks";
 	
 	@Id 

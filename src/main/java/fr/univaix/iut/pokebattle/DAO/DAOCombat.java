@@ -25,10 +25,8 @@ public class DAOCombat {
 			TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.GET_BY_NOM , Combat.class);
 			query.setParameter("nom", pokemon );
 			return query.getSingleResult();
-			
 		}
-
-		catch (java.util.NoSuchElementException exc)
+		catch (Exception exc)
 		{
 			return null;
 		}
@@ -55,7 +53,7 @@ public class DAOCombat {
 		
 		TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.GET_MAX_NUM_CB , Combat.class);
 		
-		return query.getFirstResult();
+		return query.getFirstResult() + 1;
 	}
 	
 	public Combat insert (Combat combat)

@@ -1,0 +1,18 @@
+<dataset>  
+    <POKEMON NOM="@GwenGoupix" RACE="Goupix" PV="100" NIVEAU="N.1" XP="XP.0" ATTS="2" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
+    <POKEMON NOM="@Smogogo13" RACE="Smogogo" PV="100" NIVEAU="N.1" XP="XP.0" ATTS="0" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
+    <POKEMON NOM="@Dracaufeu13" RACE="Dracaufeu" PV="100" NIVEAU="N.1" XP="XP.0" ATTS="0" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
+    <POKEMON NOM="INCONNU" RACE="NULL" PV="0" NIVEAU="NULL" XP="NULL" ATTS="0" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
+    
+    <OWNER PRENOM="@CloudDeLuna" POKEMON="@GwenGoupix" />
+    <OWNER PRENOM="@cybsip" POKEMON="@Smogogo13" />
+    <OWNER PRENOM="@CloudDeLuna" POKEMON="@Dracaufeu13" />
+    
+    <ATTACKS POKEMON="@GwenGoupix" ATTACK="Feu-Follet" NIVEAU="N.17" PUISSANCE="-" PRC="75" PP="15" PPMAX="15"/>
+    <ATTACKS POKEMON="@GwenGoupix" ATTACK="Flammeche" NIVEAU="Départ" PUISSANCE="40" PRC="100" PP="25" PPMAX="25"/>
+    <ATTACKS POKEMON="@GwenGoupix" ATTACK="Hurlement" NIVEAU="N.9" PUISSANCE="-" PRC="100" PP="20" PPMAX="20"/>
+    <ATTACKS POKEMON="@GwenGoupix" ATTACK="Vive-Attaque" NIVEAU="N.13" PUISSANCE="40" PRC="100" PP="30" PPMAX="30"/>
+    
+    <COMBAT NUM_CB="0" POKE_1="INCONNU" OWNER_1="NULL" POKE_2="INCONNU" OWNER_2="NULL" />
+    <COMBAT NUM_CB="1" POKE_1="@Smogogo13" OWNER_1="@cybsip" POKE_2="@GwenGoupix" OWNER_2="@CloudDeLuna" />
+</dataset>

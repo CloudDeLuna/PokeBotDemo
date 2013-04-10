@@ -1,5 +1,4 @@
 package fr.univaix.iut.pokebattle.DAO;
-
 import static org.fest.assertions.Assertions.assertThat;
 
 import java.sql.Connection;
@@ -19,17 +18,16 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import fr.univaix.iut.pokebattle.beans.Attacks;
+import fr.univaix.iut.pokebattle.beans.Pokemon;
 
-public class DAOAttacksTest {
+public class DAOPokemonTest {
 
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
     private static EntityManagerFactory entityManagerFactory;
 
-    private DAOAttacks dao = DAOFactory.createDAOAttacks();
-    private DAOPokemon daoP = DAOFactory.createDAOPokemon();
+    private DAOPokemon dao = DAOFactory.createDAOPokemon();
 
     @BeforeClass
     public static void initTestFixture() throws Exception {
@@ -62,15 +60,43 @@ public class DAOAttacksTest {
 
     @Test
     public void testFindAll() throws Exception {
-        List<Attacks> attaques = dao.findAll();
-        assertThat(attaques.get(0).getAttack()).isEqualTo("Feu-Follet");
-        assertThat(attaques.get(1).getAttack()).isEqualTo("Flammeche");
+        List<Pokemon> pokemons = dao.findAll();
+        assertThat(pokemons.get(0).getNom()).isEqualTo("@GwenGoupix");
+        assertThat(pokemons.get(1).getNom()).isEqualTo("@Smogogo13");
     }
 
     @Test
-    public void testFindByPokemon() throws Exception {
-    	List<Attacks> attaques = dao.findByPokemon(daoP.getByNom("@GwenGoupix"));
-        assertThat(attaques.get(0)).isNotNull();
+    public void testGetByNom() throws Exception {
+        assertThat(dao.getByNom("@GwenGoupix").getNom()).isEqualTo("@GwenGoupix");
     }
     
+    @Test
+    public void testCountByRace() throws Exception {
+        assertThat(dao.countByRace("Goupix")).isGreaterThan(0);
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+        dao.delete(dao.getByNom("@GwenGoupix"));
+        assertThat(dao.getByNom("@GwenGoupix")).isNull();
+    }
+
+    @Test
+    public void testInsert() throws Exception {
+        Pokemon raichu = new Pokemon();
+        raichu.setNom("Raichu");
+        raichu.setRace("Souris");
+        dao.persist(raichu);
+        assertThat(dao.getByNom("Raichu").getNom()).isEqualTo("Raichu");
+        assertThat(dao.getByNom("Raichu").getRace()).isEqualTo("Souris");
+    }
+
+    @Test
+    public void testUpdate() throws Exception {
+        Pokemon goupix = dao.getByNom("@GwenGoupix");
+        assertThat(goupix.getAttack()).isGreaterThan(0);
+        goupix.setAttack(-1);
+        dao.persist(goupix);
+        assertThat(dao.getByNom("@GwenGoupix").getAttack()).isLessThan(0);
+    }
 }

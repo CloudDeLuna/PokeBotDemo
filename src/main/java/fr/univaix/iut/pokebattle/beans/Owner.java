@@ -13,7 +13,6 @@ import javax.persistence.OneToOne;
 @NamedQueries({
     @NamedQuery(name = Owner.FIND_BY_PRENOM, query = "SELECT ow FROM Owner ow WHERE ow.prenom = :prenom"),
     @NamedQuery(name = Owner.FIND_BY_POKEMON, query = "SELECT ow FROM Owner ow WHERE ow.pokemon = :pokemon"),
-    @NamedQuery(name = Owner.COUNT_POKE, query = "SELECT COUNT(ow.pokemon) FROM Owner ow WHERE ow.prenom = :prenom"),
     @NamedQuery(name = Owner.FIND_ALL, query = "SELECT ow FROM Owner ow "),
 })
 public class Owner implements Serializable{
@@ -22,7 +21,6 @@ public class Owner implements Serializable{
 	
 	public static final String FIND_BY_PRENOM = "findByPrenom";
 	public static final String FIND_BY_POKEMON = "findByPokemon";
-	public static final String COUNT_POKE = "CountPokemon";
 	public static final String FIND_ALL = "findAll";
 	
 	@Id 

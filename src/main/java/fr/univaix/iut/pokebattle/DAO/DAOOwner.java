@@ -54,19 +54,6 @@ public class DAOOwner {
 			return null;
 		}
 	}
-
-	public int computeNbPoke( String prenom ){
-		try{
-			
-			TypedQuery<Owner> query = entityManager.createNamedQuery(Owner.COUNT_POKE , Owner.class);
-			query.setParameter("prenom", prenom);
-			return query.getFirstResult();
-		}
-		catch(java.util.NoSuchElementException ex)
-		{
-			return 0;
-		}
-	}
 	
 	public List<Owner> findAll ( ){
 		try{	
@@ -87,7 +74,18 @@ public class DAOOwner {
 		this.entityManager.getTransaction().begin();
 		this.entityManager.persist(own);
 		this.entityManager.getTransaction().commit();
-	}	
+	}
+	
+	  public boolean delete(Owner own) {
+	        try {
+	        	this.entityManager.getTransaction().begin();
+	            entityManager.remove(own);
+	            this.entityManager.getTransaction().commit();
+	            return true;
+	        } catch (Exception e) {
+	            return false;
+	        }
+	    }
 	
 	
 }

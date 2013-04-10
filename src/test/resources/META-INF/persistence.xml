@@ -10,12 +10,14 @@
 		<class>fr.univaix.iut.pokebattle.beans.Attacks</class>
 		<class>fr.univaix.iut.pokebattle.beans.Combat</class>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Pokemon"/>
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.user" value="monUser"/>
-      <property name="javax.persistence.jdbc.password" value="monPassword"/>
-      <property name="eclipselink.logging.level" value="INFO"/>
-<!-- <property name="eclipselink.ddl-generation" value="create-tables"/> -->
+ <property name="eclipselink.target-database" value="Derby" />
+        <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+        <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:PokemonDB;create=true" />
+        <property name="javax.persistence.jdbc.user" value="" />
+        <property name="javax.persistence.jdbc.password" value="" />
+        <property name="eclipselink.logging.level" value="INFO" />
+        <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+        <property name="eclipselink.ddl-generation"  value="create-tables"/>
     </properties>
   </persistence-unit>
 </persistence>
