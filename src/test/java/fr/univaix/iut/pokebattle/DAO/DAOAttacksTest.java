@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import fr.univaix.iut.pokebattle.beans.Attacks;
@@ -14,6 +15,14 @@ import fr.univaix.iut.pokebattle.beans.Pokemon;
 
 public class DAOAttacksTest {
 
+	@BeforeClass
+    public static void initTestFixture() throws Exception {
+    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
+        EntityManager em = emf.createEntityManager();
+        DAOFactory.setEntityManager(em);
+        
+    }
+
 	@Test
 	public void test() {
 		
@@ -21,11 +30,7 @@ public class DAOAttacksTest {
 
         DataObjectPokemon[] pokeListe = pok.getData();
         
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-        EntityManager em = emf.createEntityManager();
-        
-		DAOFactory daof = new DAOFactory(em);
-		DAOPokemon daoPoke = daof.createDAOPokemon();
+		DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 		
 		Pokemon pokName = daoPoke.getByNom("@Smogogo13");
 		//Pokemon pokName = daoPoke.getByNom("@Dracaufeu13");

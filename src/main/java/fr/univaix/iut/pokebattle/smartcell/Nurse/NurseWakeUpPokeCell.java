@@ -19,22 +19,16 @@ public class NurseWakeUpPokeCell implements SmartCell {
 		
 		if ( question.getText().contains("#DringDring")) 
 		{
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-	        EntityManager em = emf.createEntityManager();
-			DAOFactory daof = new DAOFactory(em);
-			DAOOwner daoOwn = daof.createDAOOwner();
-			DAOPokemon daoPoke = daof.createDAOPokemon();
+			DAOOwner daoOwn = DAOFactory.createDAOOwner();
+			DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 			
 			String[] phrase = question.getText().split(" ");
 
 			Pokemon poke = daoPoke.getByNom(phrase[4]);
 			Owner owner = daoOwn.getByPokemon(poke);
 			
-			em.getTransaction().begin();
 			poke.setPV(Integer.parseInt(phrase[3]));
-        	em.persist(poke);
-        	em.getTransaction().commit();
-			
+			daoPoke.persist(poke);
 			
 		   return owner.getPrenom() + " " + poke.getNom() + " is restored to full health";
 

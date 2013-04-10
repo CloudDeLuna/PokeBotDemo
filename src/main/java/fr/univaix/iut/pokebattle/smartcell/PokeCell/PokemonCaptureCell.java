@@ -26,12 +26,8 @@ public class PokemonCaptureCell implements SmartCell {
 		
 		if ( question.getText().contains("pokeball")) 
 		{
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-	        EntityManager em = emf.createEntityManager();
-	        
-			DAOFactory daof = new DAOFactory(em);
-			DAOOwner daoOwn = daof.createDAOOwner();
-			DAOPokemon daoPoke = daof.createDAOPokemon();
+			DAOOwner daoOwn = DAOFactory.createDAOOwner();
+			DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 			
 			String[] phrase = question.getText().split(" ");
 			Pokemon poke = daoPoke.getByNom(phrase[0]);
@@ -51,9 +47,7 @@ public class PokemonCaptureCell implements SmartCell {
 				String arg3 = "#pokebattle - #pokemon - Owner: " + own.getPrenom();
 				twitter.updateProfile(arg0, arg1, arg2, arg3);
 						
-				em.getTransaction().begin();
-				em.persist(own);
-				em.getTransaction().commit();
+				daoOwn.persist(own);
 		        
 				return "@" + question.getScreenName() + " @" + question.getScreenName() + " is my owner";
 			}

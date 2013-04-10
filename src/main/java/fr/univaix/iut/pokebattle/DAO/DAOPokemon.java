@@ -87,5 +87,11 @@ public class DAOPokemon {
 		
 	}
 	
+	public void persist ( Pokemon poke )
+	{
+		this.entityManager.getTransaction().begin();
+		this.entityManager.persist(poke);
+		this.entityManager.getTransaction().commit();
+	}	
 	
 }

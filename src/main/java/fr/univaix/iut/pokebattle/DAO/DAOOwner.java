@@ -82,5 +82,12 @@ public class DAOOwner {
 		}
 	}
 	
+	public void persist ( Owner own )
+	{
+		this.entityManager.getTransaction().begin();
+		this.entityManager.persist(own);
+		this.entityManager.getTransaction().commit();
+	}	
+	
 	
 }

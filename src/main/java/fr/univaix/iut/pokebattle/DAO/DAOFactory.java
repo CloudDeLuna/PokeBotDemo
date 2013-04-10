@@ -4,25 +4,25 @@ import javax.persistence.EntityManager;
 
 public class DAOFactory {
 	
-	private EntityManager entityManager;
+	private static EntityManager entityManager;
+	
+    public static synchronized void setEntityManager(EntityManager entityManager){
+    	DAOFactory.entityManager = entityManager;
+    }
 
-	public DAOFactory(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
-
-	public DAOOwner createDAOOwner() {
+	public static DAOOwner createDAOOwner() {
 		return new DAOOwner(entityManager);
 	}
 	
-	public DAOPokemon createDAOPokemon() {
+	public static DAOPokemon createDAOPokemon() {
 		return new DAOPokemon(entityManager);
 	}
 	
-	public DAOAttacks createDAOAttacks() {
+	public static DAOAttacks createDAOAttacks() {
 		return new DAOAttacks(entityManager);
 	}
 	
-	public DAOCombat createDAOCombat() {
+	public static DAOCombat createDAOCombat() {
 		return new DAOCombat(entityManager);
 
 	}

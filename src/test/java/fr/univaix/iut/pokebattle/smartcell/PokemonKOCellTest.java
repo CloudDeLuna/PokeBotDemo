@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import fr.univaix.iut.pokebattle.DAO.DAOCombat;
@@ -18,10 +19,19 @@ import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonKOCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class PokemonKOCellTest {
-
+	
+	PokemonKOCell cell = new PokemonKOCell();
+	
+	@BeforeClass
+    public static void initTestFixture() throws Exception {
+    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
+        EntityManager em = emf.createEntityManager();
+        DAOFactory.setEntityManager(em);
+        
+    }
+	
 	@Test
 	public void test() {
-		PokemonKOCell cell = new PokemonKOCell();
 		/*
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
 		EntityManager em = emf.createEntityManager();

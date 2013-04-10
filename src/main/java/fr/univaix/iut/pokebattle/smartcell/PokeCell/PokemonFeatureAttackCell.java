@@ -2,10 +2,6 @@ package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import fr.univaix.iut.pokebattle.DAO.DAOAttacks;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
@@ -20,18 +16,13 @@ public class PokemonFeatureAttackCell implements SmartCell {
 	 public String ask(Tweet question) {
 	  	  
 	  		if ( question.getText().contains("#statAttack")) 
-	  		{
-		  		  EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-		  	      EntityManager em = emf.createEntityManager();
-		  	      
+	  		{	      
 		  	      String[] phrase = question.getText().split(" ");
 		  	      
-		  	      DAOFactory daoF = new DAOFactory(em);
-		  	      
-		  		  DAOPokemon daoPoke = daoF.createDAOPokemon();
+		  		  DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 				  Pokemon poke = daoPoke.getByNom(phrase[0]);
 				  
-				  DAOAttacks daoAtt = daoF.createDAOAttacks();
+				  DAOAttacks daoAtt = DAOFactory.createDAOAttacks();
 				  List<Attacks> listAtt = daoAtt.findByPokemon(poke);
 				  
 				  String [] var = phrase[3].split("#");

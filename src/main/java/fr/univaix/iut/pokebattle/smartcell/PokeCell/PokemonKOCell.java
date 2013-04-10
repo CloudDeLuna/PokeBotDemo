@@ -1,9 +1,5 @@
 package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import fr.univaix.iut.pokebattle.DAO.DAOCombat;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOOwner;
@@ -19,15 +15,9 @@ public class PokemonKOCell implements SmartCell {
 	@Override
 	public String ask(Tweet question){
 		if (question.getText().contains("pv")) 
-		{
-			
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-			EntityManager em = emf.createEntityManager();
-			
-			DAOFactory daof = new DAOFactory(em);
-			
-			DAOPokemon daoPoke = daof.createDAOPokemon();
-			DAOCombat daocombat = daof.createDAOCombat();
+		{			
+			DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
+			DAOCombat daocombat = DAOFactory.createDAOCombat();
 			
 			String[] phrase = question.getText().split(" ");
 			Pokemon poke = daoPoke.getByNom(phrase[0]);
@@ -37,7 +27,7 @@ public class PokemonKOCell implements SmartCell {
 			
 			
 			
-			DAOOwner daoow = daof.createDAOOwner();
+			DAOOwner daoow = DAOFactory.createDAOOwner();
 			Owner ow1 = daoow.getByPokemon(poke1);
 			Owner ow2 = daoow.getByPokemon(poke2);
 			

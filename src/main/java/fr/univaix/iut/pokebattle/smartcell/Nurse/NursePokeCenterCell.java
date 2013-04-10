@@ -1,9 +1,5 @@
 package fr.univaix.iut.pokebattle.smartcell.Nurse;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -22,11 +18,9 @@ public class NursePokeCenterCell implements SmartCell {
 		if ( question.getText().contains("#PV")) 
 		{
 			Twitter twitter = TwitterFactory.getSingleton();
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-	        EntityManager em = emf.createEntityManager();
-			DAOFactory daof = new DAOFactory(em);
-			DAOOwner daoOwn = daof.createDAOOwner();
-			DAOPokemon daoPoke = daof.createDAOPokemon();
+
+			DAOOwner daoOwn = DAOFactory.createDAOOwner();
+			DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 			
 			String pokeName = question.getScreenName();
 	
@@ -48,7 +42,7 @@ public class NursePokeCenterCell implements SmartCell {
 									+ nombre[1] 
 											+ " " 
 									+ pokeName + " " 
-											+ owner.getPrenom() + " cc");			
+											+ owner.getPrenom() + " ccx");			
 			
 		    return pokeName + " come in the #pokecenter /cc " + owner.getPrenom();
 

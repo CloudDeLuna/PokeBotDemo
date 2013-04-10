@@ -1,9 +1,5 @@
 package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOOwner;
@@ -23,15 +19,9 @@ public class PokemonOwnerCell implements SmartCell {
 		
 		if (question.getText().contains("owner")) 
 		{
-				
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-			EntityManager em = emf.createEntityManager();
+			DAOOwner daoOwner = DAOFactory.createDAOOwner();
 			
-			
-			DAOFactory daof = new DAOFactory(em);
-			DAOOwner daoOwner = daof.createDAOOwner();
-			
-			DAOPokemon daoPoke = daof.createDAOPokemon();
+			DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 			
 			String[] phrase = question.getText().split(" ");
 			Pokemon poke = daoPoke.getByNom(phrase[0]);

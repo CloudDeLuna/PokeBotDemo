@@ -3,10 +3,6 @@ package fr.univaix.iut.pokebattle.smartcell.JudgeCell;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.DAO.DAOCombat;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
@@ -21,13 +17,10 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class JudgeBattleCell implements SmartCell {
 	public String ask(Tweet question) throws IllegalStateException, TwitterException {	
-
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-        EntityManager em = emf.createEntityManager();
-		DAOFactory daof = new DAOFactory(em);
-		DAOOwner daoOwn = daof.createDAOOwner();
-		DAOCombat daoCb = daof.createDAOCombat();
-		DAOPokemon daoPoke = daof.createDAOPokemon();
+		
+		DAOOwner daoOwn = DAOFactory.createDAOOwner();
+		DAOCombat daoCb = DAOFactory.createDAOCombat();
+		DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 		
 		Pattern pattern1 = Pattern.compile("(@[^ ]+) #fight with (@[^ ]+) /cc (@[^ ]+)");
 		Matcher matcher1 = pattern1.matcher(question.getText());

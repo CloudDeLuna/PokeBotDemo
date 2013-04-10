@@ -1,9 +1,5 @@
 package fr.univaix.iut.pokebattle.smartcell.Nurse;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOOwner;
@@ -19,11 +15,8 @@ public class NursePVCell implements SmartCell {
 		
 		if ( question.getText().contains("#heal")) 
 		{
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-	        EntityManager em = emf.createEntityManager();
-			DAOFactory daof = new DAOFactory(em);
-			DAOOwner daoOwn = daof.createDAOOwner();
-			DAOPokemon daoPoke = daof.createDAOPokemon();
+			DAOOwner daoOwn = DAOFactory.createDAOOwner();
+			DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 			
 			String[] phrase = question.getText().split(" ");
 			Pokemon poke = daoPoke.getByNom(phrase[2]);

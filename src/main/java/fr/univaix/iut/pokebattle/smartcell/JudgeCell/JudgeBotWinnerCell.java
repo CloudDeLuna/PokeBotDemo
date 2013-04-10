@@ -1,9 +1,5 @@
 package fr.univaix.iut.pokebattle.smartcell.JudgeCell;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.DAO.DAOCombat;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
@@ -17,15 +13,9 @@ public class JudgeBotWinnerCell implements SmartCell {
 
 	public String ask(Tweet question) throws IllegalStateException, TwitterException {	
 		if ( question.getText().contains("#KO")) 
-		{
-			EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
-			EntityManager em = emf.createEntityManager();
-			
-			
-			DAOFactory daof = new DAOFactory(em);
-			
-			DAOCombat daocombat = daof.createDAOCombat();
-			DAOPokemon daoPoke = daof.createDAOPokemon();
+		{			
+			DAOCombat daocombat = DAOFactory.createDAOCombat();
+			DAOPokemon daoPoke = DAOFactory.createDAOPokemon();
 			Pokemon poke = daoPoke.getByNom("@" + question.getScreenName());
 			Combat combat = daocombat.getByPokemon(poke);
 			

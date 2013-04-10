@@ -2,15 +2,29 @@ package fr.univaix.iut.pokebattle.smartcell;
 
 import static org.junit.Assert.assertEquals;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import twitter4j.TwitterException;
+import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonOwnerCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
     
 public class PokemonOwnerCellTest {
 
     PokemonOwnerCell cell = new PokemonOwnerCell();
+	
+	@BeforeClass
+    public static void initTestFixture() throws Exception {
+    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("Pokemon");
+        EntityManager em = emf.createEntityManager();
+        DAOFactory.setEntityManager(em);
+        
+    }
     
     @Test
     public void testOwner() throws IllegalStateException, TwitterException {
