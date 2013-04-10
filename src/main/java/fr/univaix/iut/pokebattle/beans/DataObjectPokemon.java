@@ -29,7 +29,8 @@ public class DataObjectPokemon {
                              String type1, String type2, int expval, int expmax, 
                              int captureval, String capspe1,
                              String capspe2, String couleur, int forme, 
-                             DataObjectAttack[] attaques) {
+                             DataObjectAttack[] attaquess) {
+    	DataObjectAttack[] attaques = attaquess.clone(); 
         this.nom = nom;
         this.espece = espece;
         this.taille = taille;
