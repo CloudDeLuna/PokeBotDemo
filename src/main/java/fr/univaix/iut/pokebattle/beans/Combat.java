@@ -61,18 +61,18 @@ public class Combat implements Serializable {
 	}
 
 
-	public Pokemon getPoke_1() {
+	public Pokemon getPoke1() {
 		return poke1;
 	}
 
 
-	public void setPoke_1(Pokemon poke1e) {
+	public void setPoke1(Pokemon poke1e) {
 		poke1 = poke1e;
 	}
 
 	
 
-	public Pokemon getPoke_2() {
+	public Pokemon getPoke2() {
 		return poke2;
 	}
 

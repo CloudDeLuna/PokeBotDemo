@@ -28,8 +28,8 @@ public class JudgeBotPVCell implements SmartCell{
 			
 			String[] phrase = question.getText().split(" ");
 			
-			Pokemon Poke = daoPoke.getByNom(phrase[0]);
-			Owner owner = daoOwn.getByPokemon(Poke);
+			Pokemon poke = daoPoke.getByNom(phrase[0]);
+			Owner owner = daoOwn.getByPokemon(poke);
 			
 			if (phrase[3].contains("@") )
 			{
@@ -38,17 +38,15 @@ public class JudgeBotPVCell implements SmartCell{
 			else 
 			{
 				
-				int PVPoke = Poke.getPV();
-				Poke.setPV(PVPoke-10);
+				int pVPoke = poke.getPV();
+				poke.setPV(pVPoke-10);
 				em.getTransaction().begin();
-				em.persist(Poke);
+				em.persist(poke);
 				em.getTransaction().commit();
 				
 				return phrase[0] + " -10pv /cc " + owner.getPrenom();
 			}
-			
 		}
-		
 		return null;
 	}
 

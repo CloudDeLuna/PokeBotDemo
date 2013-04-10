@@ -30,10 +30,10 @@ public class PokemonKOCell implements SmartCell {
 			DAOCombat daocombat = daof.createDAOCombat();
 			
 			String[] phrase = question.getText().split(" ");
-			Pokemon Poke = daoPoke.getByNom(phrase[0]);
-			Combat Cb = daocombat.getByPokemon(Poke);
-			Pokemon poke1 = Cb.getPoke_1();
-			Pokemon poke2 = Cb.getPoke_2();
+			Pokemon poke = daoPoke.getByNom(phrase[0]);
+			Combat cb = daocombat.getByPokemon(poke);
+			Pokemon poke1 = cb.getPoke1();
+			Pokemon poke2 = cb.getPoke2();
 			
 			
 			
@@ -42,13 +42,12 @@ public class PokemonKOCell implements SmartCell {
 			Owner ow2 = daoow.getByPokemon(poke2);
 			
 			
-			int PVPoke = Poke.getPV();
-			System.out.println(PVPoke);
+			int pVPoke = poke.getPV();
 			
-			if (PVPoke == 0 || PVPoke < 0 )
+			if (pVPoke == 0 || pVPoke < 0 )
 			{
 				return "#KO /cc @" + question.getScreenName() + " " 
-			+ (Poke.equals(poke1) ? ow2.getPrenom() : ow1.getPrenom()) + " " + (Poke.equals(poke1) ? ow1.getPrenom() : ow2.getPrenom()) ;
+			+ (poke.equals(poke1) ? ow2.getPrenom() : ow1.getPrenom()) + " " + (poke.equals(poke1) ? ow1.getPrenom() : ow2.getPrenom()) ;
 			}
 			else
 			{

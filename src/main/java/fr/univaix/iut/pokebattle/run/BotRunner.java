@@ -16,11 +16,11 @@ public class BotRunner {
             TwitterBot twitterBot = new TwitterBot(bot, credentials);
             twitterBot.startBot();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+        	e.getMessage();
         } catch (ControlStreamException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        	e.getMessage();        } 
+        catch (IOException e) {
+        	e.getMessage();
         }
     }
 

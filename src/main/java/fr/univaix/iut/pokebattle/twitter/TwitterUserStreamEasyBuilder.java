@@ -31,7 +31,7 @@ public class TwitterUserStreamEasyBuilder {
                 try {
                     processNewQuestion(status, bot);
                 } catch (TwitterException e) {
-                    e.printStackTrace();
+                	e.getMessage();
                 }
             }
         };

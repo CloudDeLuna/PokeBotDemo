@@ -59,7 +59,7 @@ public class JudgeBattleCell implements SmartCell {
 				int numCB = daoCb.getMaxNumCB();
 				cb.setIdCombat(numCB+1);
 				cb.setOwner_1(ow1.getPrenom());
-				cb.setPoke_1(pokemon1);
+				cb.setPoke1(pokemon1);
 				cb.setOwner_2(nomDresseurAdversaire);
 				cb.setPoke_2(pokemon2);
 				daoCb.insert(cb);

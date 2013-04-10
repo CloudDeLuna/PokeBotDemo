@@ -12,11 +12,10 @@ import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public class JudgeBotWinnerCellTest {
 
+	JudgeBotWinnerCell cell = new JudgeBotWinnerCell();	
+	
 	@Test
-	public void test() throws IllegalStateException, TwitterException {
-		
-		JudgeBotWinnerCell cell = new JudgeBotWinnerCell();
-		
+	public void test() throws IllegalStateException, TwitterException {	
 		assertEquals("@Smogogo13 #win", cell.ask(new Tweet("GwenGoupix", "#KO /cc @Kyiio @cybsip @CloudDeLuna")));
 	}
 

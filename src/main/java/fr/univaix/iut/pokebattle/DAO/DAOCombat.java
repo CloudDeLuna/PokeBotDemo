@@ -6,7 +6,6 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import fr.univaix.iut.pokebattle.beans.Combat;
-import fr.univaix.iut.pokebattle.beans.Owner;
 import fr.univaix.iut.pokebattle.beans.Pokemon;
 
 
@@ -29,7 +28,7 @@ public class DAOCombat {
 			
 		}
 
-		catch (java.util.NoSuchElementException Exc)
+		catch (java.util.NoSuchElementException exc)
 		{
 			return null;
 		}
@@ -45,7 +44,7 @@ public class DAOCombat {
 			
 		}
 
-		catch (java.util.NoSuchElementException Exc)
+		catch (java.util.NoSuchElementException exc)
 		{
 			return null;
 		}

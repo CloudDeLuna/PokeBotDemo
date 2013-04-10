@@ -39,7 +39,6 @@ public class PokemonOwnerCell implements SmartCell {
 			Owner owner = daoOwner.getByPokemon(poke);
 			
 			if (owner != null) {
-				System.out.println("@" + question.getScreenName() + ' ' + owner.getPrenom() + " is my owner");
 				return "@" + question.getScreenName() + ' ' + owner.getPrenom() + " is my owner"  ;
 			}
 			return "@" + question.getScreenName() + " No owner";
