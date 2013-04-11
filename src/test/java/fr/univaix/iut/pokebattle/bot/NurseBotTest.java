@@ -70,10 +70,10 @@ public class NurseBotTest {
         assertEquals("@JoelleBourgPalet #PV = 100/100", pokeBot.ask(new Tweet("JoelleBourgPalet", "@GwenGoupix #stat #PV ?")));
 	}
 	
-	@Test
+	/*@Test
 	public void testFulllife() throws IllegalStateException, TwitterException {
         assertEquals("@GwenGoupix come in the #pokecenter /cc @CloudDeLuna", nurseBot.ask(new Tweet("@GwenGoupix", "@JoelleBourgPalet #PV =90/100")));
-	}
+	}*/
 	
 	@Test
 	public void testDringDring() throws IllegalStateException, TwitterException {

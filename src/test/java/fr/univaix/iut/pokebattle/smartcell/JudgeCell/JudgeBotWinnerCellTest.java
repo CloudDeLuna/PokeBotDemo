@@ -36,7 +36,7 @@ public class JudgeBotWinnerCellTest {
 
 	    @BeforeClass
 	    public static void initTestFixture() throws Exception {
-	        entityManagerFactory = Persistence.createEntityManagerFactory("Pokemon");
+	        entityManagerFactory = Persistence.createEntityManagerFactory("PokemonPU");
 	        entityManager = entityManagerFactory.createEntityManager();
 
 	        Connection connection = ((EntityManagerImpl) (entityManager.getDelegate())).getServerSession().getAccessor().getConnection();
