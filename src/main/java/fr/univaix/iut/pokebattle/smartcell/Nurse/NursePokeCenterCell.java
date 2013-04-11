@@ -44,7 +44,7 @@ public class NursePokeCenterCell implements SmartCell {
 									+ nombre[1] 
 											+ " " 
 									+ pokeName + " " 
-											+ owner.getPrenom() + " ccx");			
+											+ owner.getPrenom() + "");			
 			
 		    return pokeName + " come in the #pokecenter /cc " + owner.getPrenom();
 
