@@ -37,8 +37,7 @@ public class DAOPokemonTest {
         Connection connection = ((EntityManagerImpl) (entityManager.getDelegate())).getServerSession().getAccessor().getConnection();
 
         dbUnitConnection = new DatabaseConnection(connection);
-        //Loads the data set from a file
-
+        
         dataset = new FlatXmlDataSetBuilder().build(Thread.currentThread()
                 .getContextClassLoader()
                 .getResourceAsStream("pokemonDataSet.xml"));
