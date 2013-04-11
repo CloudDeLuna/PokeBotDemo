@@ -17,9 +17,9 @@ public class PokeBotTest {
     
     @Test
     public void testSalut() throws IllegalStateException, TwitterException {
-        assertEquals("Pika pika", pokeBot.ask(new Tweet("Salut")));
-        assertEquals("Pika pika", pokeBot.ask(new Tweet("This is not a question.")));
-        assertEquals("@nedseb Pika pika", pokeBot.ask(new Tweet("nedseb", "Salut")));
-        assertEquals("@nedseb Pika pika", pokeBot.ask(new Tweet("nedseb", "This is not a question.")));
+        assertEquals("Pika pika #pokebattle", pokeBot.ask(new Tweet("Salut")));
+        assertEquals("Pika pika #pokebattle", pokeBot.ask(new Tweet("This is not a question.")));
+        assertEquals("@nedseb Pika pika #pokebattle", pokeBot.ask(new Tweet("nedseb", "Salut")));
+        assertEquals("@nedseb Pika pika #pokebattle", pokeBot.ask(new Tweet("nedseb", "This is not a question.")));
     }
 }

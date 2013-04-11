@@ -1,6 +1,4 @@
-package fr.univaix.iut.pokebattle.smartcell;
-
-import static org.junit.Assert.assertEquals;
+package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
 import java.sql.Connection;
 
@@ -19,13 +17,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import twitter4j.TwitterException;
-import fr.univaix.iut.pokebattle.DAO.DAOFactory;
-import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonOwnerCell;
-import fr.univaix.iut.pokebattle.twitter.Tweet;
-    
-public class PokemonOwnerCellTest {
 
-    PokemonOwnerCell cell = new PokemonOwnerCell();
+import static org.fest.assertions.Assertions.assertThat;
+
+import fr.univaix.iut.pokebattle.DAO.DAOFactory;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonWinXPCell;
+import fr.univaix.iut.pokebattle.twitter.Tweet;
+
+public class PokemonWinXPCellTest {
+
+	PokemonWinXPCell cell = new PokemonWinXPCell();
 	
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
@@ -60,15 +61,9 @@ public class PokemonOwnerCellTest {
         DatabaseOperation.CLEAN_INSERT.execute(dbUnitConnection, dataset);
     }
     
-    @Test
-    public void testOwner() throws IllegalStateException, TwitterException {
-    	System.out.println(cell.ask(new Tweet("azaz","@Smogogo13 who is your owner ?")));
-       assertEquals("@azaz @cybsip is my owner", cell.ask(new Tweet("azaz","@Smogogo13 who is your owner ?")));
-    }
+	@Test
+	public void test() throws IllegalStateException, TwitterException {
+		assertThat(cell.ask(new Tweet("Smogogo13","@GwenGoupix #Win +24xp"))).isNull();
+	}
 
-    @Test
-    public void testNotOwner() throws IllegalStateException, TwitterException {
-       assertEquals("@azaz @CloudDeLuna is my owner", cell.ask(new Tweet("azaz","@GwenGoupix who is your owner ?")));
-       System.out.println(cell.ask(new Tweet("azaz","@GwenGoupix who is your owner ?")));
-    }
 }

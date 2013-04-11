@@ -1,4 +1,6 @@
-package fr.univaix.iut.pokebattle.smartcell;
+package fr.univaix.iut.pokebattle.smartcell.PokeCell;
+
+import static org.junit.Assert.assertEquals;
 
 import java.sql.Connection;
 
@@ -17,17 +19,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import twitter4j.TwitterException;
-
-import static org.fest.assertions.Assertions.assertThat;
-
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
-import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonWinXPCell;
+import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonCaptureCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
-public class PokemonWinXPCellTest {
+public class PokemonCaptureCellTest {
 
-	PokemonWinXPCell cell = new PokemonWinXPCell();
-	
+    PokemonCaptureCell cell = new PokemonCaptureCell();
+    
     private static EntityManager entityManager;
     private static FlatXmlDataSet dataset;
     private static DatabaseConnection dbUnitConnection;
@@ -61,9 +60,9 @@ public class PokemonWinXPCellTest {
         DatabaseOperation.CLEAN_INSERT.execute(dbUnitConnection, dataset);
     }
     
-	@Test
-	public void test() throws IllegalStateException, TwitterException {
-		assertThat(cell.ask(new Tweet("Smogogo13","@GwenGoupix #Win +24xp"))).isNull();
-	}
-
+    @Test
+    public void testCaptureFalse() throws IllegalStateException, TwitterException 
+    {
+    	assertEquals("@CloudDeLuna @CloudDeLuna is my owner", cell.ask(new Tweet("CloudDeLuna","@GwenGoupix pokeball goo !")));
+    }
 }

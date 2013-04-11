@@ -2,9 +2,9 @@ package fr.univaix.iut.pokebattle.bot;
 
 import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.smartcell.SmartCell;
-import fr.univaix.iut.pokebattle.smartcell.Nurse.NursePVCell;
-import fr.univaix.iut.pokebattle.smartcell.Nurse.NursePokeCenterCell;
-import fr.univaix.iut.pokebattle.smartcell.Nurse.NurseWakeUpPokeCell;
+import fr.univaix.iut.pokebattle.smartcell.NurseCell.NursePVCell;
+import fr.univaix.iut.pokebattle.smartcell.NurseCell.NursePokeCenterCell;
+import fr.univaix.iut.pokebattle.smartcell.NurseCell.NurseWakeUpPokeCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
 
 public final class NurseBot implements Bot {
@@ -34,7 +34,7 @@ public final class NurseBot implements Bot {
             answer = cell.ask(question);
             if (answer != null)
             {
-                return answer;
+                return answer+ " #pokebattle";
             }
         }
         return null;

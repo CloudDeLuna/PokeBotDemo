@@ -48,7 +48,7 @@ public class PokemonCaptureCell implements SmartCell {
 			}
 			else
 			{
-				return "@" + question.getScreenName() + " " + owner.getPrenom() + " is my owner !";
+				return "@" + question.getScreenName() + " " + owner.getPrenom() + " is my owner";
 			}
 		}//if contains pokeball
 		

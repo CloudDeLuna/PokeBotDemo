@@ -47,7 +47,7 @@ public final class JudgeBot implements Bot {
             
             if (answer != null)
             {
-                return answer;
+                return answer + " #pokebattle";
             }
         }
         return null;

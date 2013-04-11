@@ -1,4 +1,4 @@
-package fr.univaix.iut.pokebattle.smartcell.Nurse;
+package fr.univaix.iut.pokebattle.smartcell.NurseCell;
 
 import twitter4j.Twitter;
 import twitter4j.TwitterException;

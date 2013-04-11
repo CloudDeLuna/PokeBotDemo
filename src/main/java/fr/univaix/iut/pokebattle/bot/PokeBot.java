@@ -45,7 +45,7 @@ public final class PokeBot implements Bot {
             String answer = cell.ask(question);
             if (answer != null)
             {
-                return answer;
+                return answer+ " #pokebattle";
             }
         }
         return null;

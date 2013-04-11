@@ -40,7 +40,6 @@ public class NurseBotTest {
         Connection connection = ((EntityManagerImpl) (entityManager.getDelegate())).getServerSession().getAccessor().getConnection();
 
         dbUnitConnection = new DatabaseConnection(connection);
-        //Loads the data set from a file
 
         dataset = new FlatXmlDataSetBuilder().build(Thread.currentThread()
                 .getContextClassLoader()
@@ -62,12 +61,12 @@ public class NurseBotTest {
 
 	@Test
 	public void test() throws IllegalStateException, TwitterException {
-        assertEquals("@GwenGoupix #stat #PV ?", nurseBot.ask(new Tweet("CloudDeLuna", "@JoelleBourgPalet #heal @GwenGoupix")));
+        assertEquals("@GwenGoupix #stat #PV ? #pokebattle", nurseBot.ask(new Tweet("CloudDeLuna", "@JoelleBourgPalet #heal @GwenGoupix")));
 	}
 	
 	@Test
 	public void testPV() throws IllegalStateException, TwitterException {
-        assertEquals("@JoelleBourgPalet #PV = 100/100", pokeBot.ask(new Tweet("JoelleBourgPalet", "@GwenGoupix #stat #PV ?")));
+        assertEquals("@JoelleBourgPalet #PV = 100/100 #pokebattle", pokeBot.ask(new Tweet("JoelleBourgPalet", "@GwenGoupix #stat #PV ?")));
 	}
 	
 	/*@Test
@@ -77,7 +76,7 @@ public class NurseBotTest {
 	
 	@Test
 	public void testDringDring() throws IllegalStateException, TwitterException {
-        assertEquals("@CloudDeLuna @GwenGoupix is restored to full health", nurseBot.ask(new Tweet("@PokeTimer", "@JoelleBourgPalet #DringDring #MaxHealth 100 @GwenGoupix @CloudDeLuna")));
+        assertEquals("@CloudDeLuna @GwenGoupix is restored to full health #pokebattle", nurseBot.ask(new Tweet("@PokeTimer", "@JoelleBourgPalet #DringDring #MaxHealth 100 @GwenGoupix @CloudDeLuna")));
 	}
 	
 	@Test

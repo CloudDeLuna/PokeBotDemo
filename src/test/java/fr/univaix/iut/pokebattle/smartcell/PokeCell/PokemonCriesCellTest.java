@@ -1,4 +1,4 @@
-package fr.univaix.iut.pokebattle.smartcell;
+package fr.univaix.iut.pokebattle.smartcell.PokeCell;
 
 import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonCriesCell;
 import fr.univaix.iut.pokebattle.twitter.Tweet;
