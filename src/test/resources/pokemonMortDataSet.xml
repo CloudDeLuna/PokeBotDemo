@@ -1,8 +1,8 @@
 <dataset>  
-    <POKEMON NOM="@GwenGoupix" RACE="Goupix" PV="0" NIVEAU="N.1" XP="XP.0" ATTS="2" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
-    <POKEMON NOM="@Smogogo13" RACE="Smogogo" PV="100" NIVEAU="N.1" XP="XP.0" ATTS="0" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
-    <POKEMON NOM="@Dracaufeu13" RACE="Dracaufeu" PV="100" NIVEAU="N.1" XP="XP.0" ATTS="0" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
-    <POKEMON NOM="INCONNU" RACE="NULL" PV="0" NIVEAU="NULL" XP="NULL" ATTS="0" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
+    <POKEMON NOM="@GwenGoupix" RACE="Goupix" PV="0" NIVEAU="1" XP="0" ATTS="2" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
+    <POKEMON NOM="@Smogogo13" RACE="Smogogo" PV="100" NIVEAU="1" XP="0" ATTS="0" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
+    <POKEMON NOM="@Dracaufeu13" RACE="Dracaufeu" PV="100" NIVEAU="1" XP="0" ATTS="0" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
+    <POKEMON NOM="INCONNU" RACE="NULL" PV="0" NIVEAU="0" XP="0" ATTS="0" DEFS="0" ATTSPE="0" DEFSPE="0" VIT="0"/>
     
     <OWNER PRENOM="@CloudDeLuna" POKEMON="@GwenGoupix" />
     <OWNER PRENOM="@cybsip" POKEMON="@Smogogo13" />
