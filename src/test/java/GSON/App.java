@@ -5,7 +5,6 @@ import fr.univaix.iut.pokebattle.beans.DataObjectPokemon;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 import org.junit.Test;
 
