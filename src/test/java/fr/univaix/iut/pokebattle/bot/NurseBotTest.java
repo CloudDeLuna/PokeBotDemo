@@ -1,5 +1,6 @@
 package fr.univaix.iut.pokebattle.bot;
 
+import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
 import java.sql.Connection;
@@ -69,14 +70,21 @@ public class NurseBotTest {
         assertEquals("@JoelleBourgPalet #PV = 100/100", pokeBot.ask(new Tweet("JoelleBourgPalet", "@GwenGoupix #stat #PV ?")));
 	}
 	
-	/*@Test
+	@Test
 	public void testFulllife() throws IllegalStateException, TwitterException {
         assertEquals("@GwenGoupix come in the #pokecenter /cc @CloudDeLuna", nurseBot.ask(new Tweet("@GwenGoupix", "@JoelleBourgPalet #PV =90/100")));
-	}*/
+	}
 	
 	@Test
 	public void testDringDring() throws IllegalStateException, TwitterException {
         assertEquals("@CloudDeLuna @GwenGoupix is restored to full health", nurseBot.ask(new Tweet("@PokeTimer", "@JoelleBourgPalet #DringDring #MaxHealth 100 @GwenGoupix @CloudDeLuna")));
+	}
+	
+	@Test
+	public void testNonNurse() throws IllegalStateException, TwitterException
+	{
+        assertThat(nurseBot.ask(new Tweet("Salut"))).isNull();
+        assertThat(nurseBot.ask(new Tweet("This is not a question."))).isNull();
 	}
 
 }
