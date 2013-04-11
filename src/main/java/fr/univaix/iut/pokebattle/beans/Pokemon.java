@@ -13,7 +13,6 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
     @NamedQuery(name = Pokemon.FIND_BY_NOM, query = "SELECT poke FROM Pokemon poke WHERE poke.nom = :nom"),
     @NamedQuery(name = Pokemon.FIND_BY_RACE, query = "SELECT poke FROM Pokemon poke WHERE poke.race = :race"),
-    @NamedQuery(name = Pokemon.COUNT_POKE_PER_RACE, query = "SELECT COUNT(poke.nom) FROM Pokemon poke WHERE poke.race = :race"),
     @NamedQuery(name = Pokemon.FIND_ALL, query = "SELECT poke FROM Pokemon poke "),
 })
 
@@ -23,7 +22,6 @@ public class Pokemon implements Serializable{
 	
 	public static final String FIND_BY_NOM = "findBynom";
 	public static final String FIND_BY_RACE = "findByRace";
-	public static final String COUNT_POKE_PER_RACE = "CountPokemonPerRace";
 	public static final String FIND_ALL = "findAllPoke";
 	
 	@Id

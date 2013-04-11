@@ -71,11 +71,6 @@ public class DAOPokemonTest {
     }
     
     @Test
-    public void testCountByRace() throws Exception {
-        assertThat(dao.countByRace("Goupix")).isGreaterThan(0);
-    }
-
-    @Test
     public void testDelete() throws Exception {
         dao.delete(dao.getByNom("@GwenGoupix"));
         assertThat(dao.getByNom("@GwenGoupix")).isNull();

@@ -69,24 +69,6 @@ public class DAOPokemon {
 		
 	}
 	
-	public int countByRace ( String race )
-	{
-		
-		try{	
-			
-			TypedQuery<Pokemon> query = entityManager.createNamedQuery(Pokemon.COUNT_POKE_PER_RACE , Pokemon.class);
-			query.setParameter("race", race);
-			return query.getFirstResult();
-			
-		}
-		
-		catch(Exception ex)
-		{
-			return 0;
-		}
-		
-	}
-	
 	public void persist ( Pokemon poke )
 	{
 		this.entityManager.getTransaction().begin();

@@ -39,7 +39,6 @@ public class DAOCombat {
 			TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.GET_BY_OWNER , Combat.class);
 			query.setParameter("nom", owner );
 			return query.getSingleResult();
-			
 		}
 
 		catch (java.util.NoSuchElementException exc)
