@@ -10,7 +10,7 @@
 		<class>fr.univaix.iut.pokebattle.beans.Attacks</class>
 		<class>fr.univaix.iut.pokebattle.beans.Combat</class>
     <properties>
- <property name="eclipselink.target-database" value="Derby" />
+ 		<property name="eclipselink.target-database" value="Derby" />
         <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
         <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:PokemonDB;create=true" />
         <property name="javax.persistence.jdbc.user" value="" />
