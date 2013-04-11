@@ -50,7 +50,7 @@ public class PokemonAttackCell implements SmartCell
 							final int deux = 2;
 							final int cinq = 5;
 							final int six = 6;
-							return phrase[trois ] + " #attack " + phrase[deux] + " /cc " + phrase[cinq] + " " + owner.getPrenom() + " " + phrase[six]; 
+							return phrase[trois] + " #attack " + phrase[deux] + " /cc " + phrase[cinq] + " " + owner.getPrenom() + " " + phrase[six]; 
 						}
 						else
 						{

@@ -51,6 +51,11 @@ CREATE TABLE ATTACKS
 	PRIMARY KEY (POKEMON, ATTACK),FOREIGN KEY(POKEMON) REFERENCES OWNER(POKEMON)
    );
 
+INSERT INTO ATTACKS VALUES ("@GwenGoupix", "Feu-Follet", "N.17", "-", "75", "15", "15");
+INSERT INTO ATTACKS VALUES ("@GwenGoupix", "Flammeche", "Départ", "40", "100", "25", "25");
+INSERT INTO ATTACKS VALUES ("@GwenGoupix", "Vive-Attaque", "N.13", "40", "100", "30", "30");
+INSERT INTO ATTACKS VALUES ("@GwenGoupix", "Hurlement", "N.9", "-", "100", "20", "20");
+
 CREATE TABLE COMBAT 
 (
 	NUM_CB INT,
