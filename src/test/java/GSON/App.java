@@ -1,7 +1,11 @@
 package GSON;
+import com.google.gson.Gson;
 
 import fr.univaix.iut.pokebattle.beans.DataObjectPokemon;
-import fr.univaix.iut.pokebattle.beans.Pokedex;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 
 import org.junit.Test;
 
@@ -9,10 +13,19 @@ public class App
 {
 	@Test
 	public void test() {
-		
-        Pokedex pok = Pokedex.getInstance();
+        Gson gson = new Gson();
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(
+        									App.class.getClassLoader().getResourceAsStream("pokedex.json")));
+        
         //convert the json string back to object
-        DataObjectPokemon pokeObj = pok.getPokemon("Goupix");
-        System.out.println(pokeObj);
+        DataObjectPokemon[] pokeObj = gson.fromJson(br, DataObjectPokemon[].class);
+
+        //System.out.println(Arrays.toString(pokeObj));
+        
+        for (DataObjectPokemon i : pokeObj)
+        	if (i.getNom().equals("Goupix"))
+        		System.out.println(i.getAttaques());
 	}
+
 }

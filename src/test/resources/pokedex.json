@@ -13244,7 +13244,11 @@
         "nom": "Vive-Attaque",
         "puissance": "40",
         "precision": "100",
+<<<<<<< HEAD
         "pp": "30"
+=======
+        "pp": "0"
+>>>>>>> F-14-Test
       },
       {
         "niveau": "N.17",

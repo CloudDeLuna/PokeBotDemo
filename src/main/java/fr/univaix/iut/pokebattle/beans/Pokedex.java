@@ -2,6 +2,7 @@ package fr.univaix.iut.pokebattle.beans;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
 import java.util.Arrays;
 
 import com.google.gson.Gson;
