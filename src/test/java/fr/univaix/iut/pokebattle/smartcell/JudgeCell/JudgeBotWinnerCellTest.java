@@ -64,7 +64,7 @@ public class JudgeBotWinnerCellTest {
 	
 	@Test
 	public void test() throws IllegalStateException, TwitterException {	
-		assertEquals("@Smogogo13 #win", cell.ask(new Tweet("GwenGoupix", "#KO /cc @Kyiio @cybsip @CloudDeLuna")));
+		assertEquals("@Smogogo13 #Win +24xp", cell.ask(new Tweet("GwenGoupix", "#KO /cc @Kyiio @cybsip @CloudDeLuna")));
 	}
 
 }

@@ -103,10 +103,10 @@ public class Pokemon implements Serializable{
 	public void setSpeed(int speed) {
 		this.speed = speed;
 	}
-	
+	@Override
 	public String toString() {
-		return "Pokemon [Nom=" + nom + ", Race=" + race + ", Niveau=" + niveau
-				+ ", PV=" + pV + ", XP=" + xP + ", attack=" + attack
+		return "Pokemon [nom=" + nom + ", race=" + race + ", niveau=" + niveau
+				+ ", pV=" + pV + ", xP=" + xP + ", attack=" + attack
 				+ ", defense=" + defense + ", attackSpecial=" + attackSpecial
 				+ ", defenseSpecial=" + defenseSpecial + ", speed=" + speed
 				+ "]";
