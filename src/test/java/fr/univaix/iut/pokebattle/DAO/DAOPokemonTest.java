@@ -40,7 +40,7 @@ public class DAOPokemonTest {
         
         dataset = new FlatXmlDataSetBuilder().build(Thread.currentThread()
                 .getContextClassLoader()
-                .getResourceAsStream("pokemonDataSet.xml"));
+                .getResourceAsStream("pokemonMortDataSet.xml"));
         
         DAOFactory.setEntityManager(entityManager);
     }
@@ -68,12 +68,6 @@ public class DAOPokemonTest {
     public void testGetByNom() throws Exception {
         assertThat(dao.getByNom("@GwenGoupix").getNom()).isEqualTo("@GwenGoupix");
     }
-    
-    @Test
-    public void testDelete() throws Exception {
-        dao.delete(dao.getByNom("@GwenGoupix"));
-        assertThat(dao.getByNom("@GwenGoupix")).isNull();
-    }
 
     @Test
     public void testInsert() throws Exception {
@@ -93,4 +87,10 @@ public class DAOPokemonTest {
         dao.persist(goupix);
         assertThat(dao.getByNom("@GwenGoupix").getAttack()).isLessThan(0);
     }
+    
+    /*@Test
+    public void testDelete() throws Exception {
+        dao.delete(dao.getByNom("@Dracaufeu13"));
+        assertThat(dao.getByNom("@Dracaufeu13")).isNull();
+    }*/
 }

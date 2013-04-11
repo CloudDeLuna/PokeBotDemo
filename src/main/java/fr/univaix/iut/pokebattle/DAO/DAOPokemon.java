@@ -3,6 +3,7 @@
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
 
 import fr.univaix.iut.pokebattle.beans.Pokemon;
@@ -71,16 +72,18 @@ public class DAOPokemon {
 	
 	public void persist ( Pokemon poke )
 	{
-		this.entityManager.getTransaction().begin();
-		this.entityManager.persist(poke);
-		this.entityManager.getTransaction().commit();
+    	EntityTransaction e = entityManager.getTransaction();
+    	e.begin();
+		entityManager.persist(poke);
+		e.commit();
 	}
 	
   public boolean delete(Pokemon poke) {
         try {
-        	this.entityManager.getTransaction().begin();
+        	EntityTransaction e = entityManager.getTransaction();
+        	e.begin();
             entityManager.remove(poke);
-            this.entityManager.getTransaction().commit();
+            e.commit();
             return true;
         } catch (Exception e) {
             return false;
