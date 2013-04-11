@@ -29,7 +29,8 @@ public class PokemonAttackCell implements SmartCell
 	
 				if ( owner.getPrenom().equals("@" + question.getScreenName())) 
 				{
-					poke = daoPoke.getByNom(phrase[3]);
+					final int trois = 3;
+					poke = daoPoke.getByNom(phrase[trois]);
 					
 					Pokedex dex = Pokedex.getInstance();
 					
@@ -41,12 +42,12 @@ public class PokemonAttackCell implements SmartCell
 					{
 						if (i.getNom().contains(attack[1]))
 						{
+							final int dix = 10;
 							int pVPoke = poke.getPV();
-							poke.setPV(pVPoke-10);
+							poke.setPV(pVPoke-dix);
 							daoPoke.persist(poke);
 							
 							final int deux = 2;
-							final int trois = 3;
 							final int cinq = 5;
 							final int six = 6;
 							return phrase[trois ] + " #attack " + phrase[deux] + " /cc " + phrase[cinq] + " " + owner.getPrenom() + " " + phrase[six]; 

@@ -6,8 +6,6 @@ public final class DAOFactory {
 	
 	private static EntityManager entityManager;
 	
-	
-	
     private DAOFactory() {
 		super();
 	}
