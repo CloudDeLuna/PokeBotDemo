@@ -20,6 +20,10 @@ public class AttacksPKTest {
 		assertEquals("Vive-attaque", test.getAttack());
 		assertEquals("@Dracaufeu13", test.getPoke());
 		
+		AttacksPK test2 = new AttacksPK("@Dracaufeu13", "Vive-attaque");
+		assertEquals (test, test2);
+		
 		System.out.println(test.toString());
+		System.out.println(test.hashCode());
 	}
 }
