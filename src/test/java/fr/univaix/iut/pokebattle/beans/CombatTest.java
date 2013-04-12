@@ -65,9 +65,17 @@ public class CombatTest {
 				"@Sacha");
 		
 		System.out.println(cbt.toString());	
+		System.out.println(cbt.hashCode());	
 		assertEquals(cbt.getOwner1(), "@Cloud");
 		assertEquals(cbt.getOwner2(), "@Sacha");
 		assertEquals(cbt.getIdCombat(),2);
+		
+		cbt.setOwner1(null);
+		cbt.setOwner2(null);
+		cbt.setPoke1(null);
+		cbt.setPoke2(null);
+		
+		System.out.println(cbt.hashCode());	
 	}
 
 }
