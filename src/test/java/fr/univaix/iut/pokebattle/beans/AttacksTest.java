@@ -82,6 +82,17 @@ public class AttacksTest {
         assertThat(att.getPokemon().getNom()).isEqualTo("@Dracaufeu13");
         
 		System.out.println(att.toString());
+		System.out.println(att.hashCode());
+		
+		att.setAttack(null);
+		att.setNiveau(null);
+		att.setPP(null);
+		att.setPPMAX(null);
+		att.setPrecision(null);
+		att.setPuissance(null);
+		att.setPokemon(null);
+		
+		System.out.println(att.hashCode());
 	}
 
 }
