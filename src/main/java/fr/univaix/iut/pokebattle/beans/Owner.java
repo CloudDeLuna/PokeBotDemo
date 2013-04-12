@@ -59,42 +59,32 @@ public class Owner implements Serializable{
 
 	@Override
 	public int hashCode() {
-		  assert false : "hashCode not designed";
-		  return 42;
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((pokemon == null) ? 0 : pokemon.hashCode());
+		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
+		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
-		{
 			return true;
-		}
 		if (obj == null)
-		{
 			return false;
-		}
 		if (getClass() != obj.getClass())
-		{
 			return false;
-		}		Owner other = (Owner) obj;
+		Owner other = (Owner) obj;
 		if (pokemon == null) {
 			if (other.pokemon != null)
-			{
 				return false;
-			}
 		} else if (!pokemon.equals(other.pokemon))
-		{
 			return false;
-		}
 		if (prenom == null) {
 			if (other.prenom != null)
-			{
 				return false;
-			}
 		} else if (!prenom.equals(other.prenom))
-		{
 			return false;
-		}
 		return true;
 	}
 

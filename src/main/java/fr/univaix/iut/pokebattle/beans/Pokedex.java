@@ -49,10 +49,15 @@ public final class Pokedex {
 		return data;
 	}
 	
+
 	@Override
 	public int hashCode() {
-		  assert false : "hashCode not designed";
-		  return 42;
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((br == null) ? 0 : br.hashCode());
+		result = prime * result + Arrays.hashCode(data);
+		result = prime * result + ((gson == null) ? 0 : gson.hashCode());
+		return result;
 	}
 
 	@Override
