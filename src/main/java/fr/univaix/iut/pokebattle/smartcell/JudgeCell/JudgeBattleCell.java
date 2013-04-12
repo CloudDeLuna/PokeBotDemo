@@ -40,7 +40,7 @@ public class JudgeBattleCell implements SmartCell {
 		{
 			String nomDresseurAdversaire = matcher1.group(1);
 			String nomPokemon = matcher1.group(2);
-			
+			String nomJuge = matcher1.group(3);
 			String nomDresseur = "@"+question.getScreenName();
 			
 			Pokemon pokemon1 = daoPoke.getByNom(nomPokemon);
@@ -56,14 +56,15 @@ public class JudgeBattleCell implements SmartCell {
 			{
 				
 				Combat cb = new Combat ();
-				int numCB = daoCb.getMaxNumCB().getIdCombat();
-				cb.setIdCombat(numCB+1);
-				cb.setOwner1(ow1.getPrenom());
-				cb.setPoke1(pokemon1);
-				cb.setOwner2(nomDresseurAdversaire);
-				cb.setPoke2(pokemon2);
-				daoCb.insert(cb);
-				return "skip";
+				cb = daoCb.getByJuge(nomJuge);
+				
+				if ( cb != null )
+				{
+					Combat cbJuste = new Combat ( nomJuge , pokemon1 , ow1.getPrenom(),
+												pokemon2 , nomDresseurAdversaire , 0 , 0 );
+					daoCb.insert(cbJuste);
+					return "skip";
+				}
 			}
 			else
 			{

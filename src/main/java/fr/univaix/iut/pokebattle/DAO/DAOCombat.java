@@ -51,11 +51,11 @@ public class DAOCombat {
 		}
 	}
 	
-	public Combat getMaxNumCB ()
+	public Combat getByJuge (String nomJuge)
 	{
 		
-		TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.GET_MAX_NUM_CB , Combat.class);
-
+		TypedQuery<Combat> query = entityManager.createNamedQuery(Combat.GET_BY_JUDGE , Combat.class);
+		query.setParameter("nom", nomJuge );
 		return query.getSingleResult();
 	}
 	

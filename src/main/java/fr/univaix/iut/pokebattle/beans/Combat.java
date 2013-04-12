@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 @NamedQueries({
     @NamedQuery(name = Combat.GET_BY_NOM, query = "SELECT cb FROM Combat cb WHERE  ( cb.poke1 = :nom OR cb.poke2 = :nom )"),
     @NamedQuery(name = Combat.GET_BY_OWNER, query = "SELECT cb FROM Combat cb WHERE  ( cb.owner1 = :nom OR cb.owner2 = :nom )"),
-    @NamedQuery(name = Combat.GET_MAX_NUM_CB, query = "SELECT cb FROM Combat cb WHERE cb.idCombat IN ( SELECT MAX(cb2.idCombat) FROM Combat cb2 )"),
+    @NamedQuery(name = Combat.GET_BY_JUDGE, query = "SELECT cb FROM Combat cb WHERE cb.nomJuge = :nom"),
 })
 public class Combat implements Serializable {
 	
@@ -22,12 +22,12 @@ public class Combat implements Serializable {
 
 	public static final String GET_BY_NOM = "findCombatEnCoursByPokemon";
 	public static final String GET_BY_OWNER = "findCombatEnCoursByOwner";
-	public static final String GET_MAX_NUM_CB = "findMaxNumCB";
+	public static final String GET_BY_JUDGE = "findCombatByJuge";
 	
 	
 	@Id 
-	@Column( name = "NUM_CB")
-	private int idCombat ;
+	@Column( name = "NOM_JUGE")
+	private String nomJuge;
 	
 	
 	@OneToOne 
@@ -47,27 +47,31 @@ public class Combat implements Serializable {
 	@Column ( name = "NUM_ROUND")
 	private int numRound;
 	
+	@Column ( name = "CPT_ATT")
+	private int compteurAtt;
+	
 	public Combat() {
 		super();
 	}
 
-	public Combat(int idCombat, Pokemon poke1, String owner1, Pokemon poke2,
-			String owner2, int numRound) {
+	public Combat(String nomJuge, Pokemon poke1, String owner1, Pokemon poke2,
+			String owner2, int numRound, int compteurAtt) {
 		super();
-		this.idCombat = idCombat;
+		this.nomJuge = nomJuge;
 		this.poke1 = poke1;
 		this.owner1 = owner1;
 		this.poke2 = poke2;
 		this.owner2 = owner2;
 		this.numRound = numRound;
-	}
-	
-	public int getIdCombat() {
-		return idCombat;
+		this.compteurAtt = compteurAtt;
 	}
 
-	public void setIdCombat(int idCombat) {
-		this.idCombat = idCombat;
+	public String getNomJuge() {
+		return nomJuge;
+	}
+
+	public void setNomJuge(String nomJuge) {
+		this.nomJuge = nomJuge;
 	}
 
 	public Pokemon getPoke1() {
@@ -110,18 +114,28 @@ public class Combat implements Serializable {
 		this.numRound = numRound;
 	}
 
+	public int getCompteurAtt() {
+		return compteurAtt;
+	}
+
+	public void setCompteurAtt(int compteurAtt) {
+		this.compteurAtt = compteurAtt;
+	}
+
 	@Override
 	public String toString() {
-		return "Combat [idCombat=" + idCombat + ", poke1=" + poke1.getNom()
-				+ ", owner1=" + owner1 + ", poke2=" + poke2.getNom() + ", owner2="
-				+ owner2 + ", numRound=" + numRound + "]";
+		return "Combat [nomJuge=" + nomJuge + ", poke1=" + poke1.getNom() + ", owner1="
+				+ owner1 + ", poke2=" + poke2.getNom() + ", owner2=" + owner2
+				+ ", numRound=" + numRound + ", compteurAtt=" + compteurAtt
+				+ "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idCombat;
+		result = prime * result + compteurAtt;
+		result = prime * result + ((nomJuge == null) ? 0 : nomJuge.hashCode());
 		result = prime * result + numRound;
 		result = prime * result + ((owner1 == null) ? 0 : owner1.hashCode());
 		result = prime * result + ((owner2 == null) ? 0 : owner2.hashCode());
@@ -139,7 +153,12 @@ public class Combat implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Combat other = (Combat) obj;
-		if (idCombat != other.idCombat)
+		if (compteurAtt != other.compteurAtt)
+			return false;
+		if (nomJuge == null) {
+			if (other.nomJuge != null)
+				return false;
+		} else if (!nomJuge.equals(other.nomJuge))
 			return false;
 		if (numRound != other.numRound)
 			return false;
@@ -165,13 +184,5 @@ public class Combat implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-
-	
-
-
-	
 	
 }

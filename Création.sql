@@ -58,11 +58,12 @@ CREATE TABLE COMBAT
 	OWNER_1 VARCHAR(20), 
 	POKE_2 VARCHAR(20),
 	OWNER_2 VARCHAR(20),
-	NUM_ROUND INT, 
+	NUM_ROUND INT,
+	CPT_ATT INT,
 	PRIMARY KEY(NOM_JUGE),
 	FOREIGN KEY (POKE_1) REFERENCES OWNER(POKEMON),
 	FOREIGN KEY (POKE_2) REFERENCES OWNER(POKEMON)
 );
-insert into COMBAT values ( 'INCONNU' , 'INCONNU' , NULL , 'INCONNU' , NULL , 0 );
-insert into COMBAT values ( '@Kyiio' , '@Smogogo13' , '@cybsip' , '@GwenGoupix' ,  '@CloudDeLuna' , 0) ;
+insert into COMBAT values ( 'INCONNU' , 'INCONNU' , NULL , 'INCONNU' , NULL , 0 , 0 );
+insert into COMBAT values ( '@Kyiio' , '@Smogogo13' , '@cybsip' , '@GwenGoupix' ,  '@CloudDeLuna' , 0 , 0 ) ;
 
