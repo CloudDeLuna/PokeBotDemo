@@ -21,6 +21,7 @@ import org.junit.Test;
 import fr.univaix.iut.pokebattle.DAO.DAOCombat;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
 import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
+import fr.univaix.iut.pokebattle.run.PokemonMain;
 
 public class CombatTest {
 

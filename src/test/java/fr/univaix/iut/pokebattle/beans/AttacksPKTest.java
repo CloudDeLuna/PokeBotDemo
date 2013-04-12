@@ -25,16 +25,18 @@ public class AttacksPKTest {
 		assertEquals("@Dracaufeu13", test.getPoke());
 		
 		AttacksPK test2 = new AttacksPK("@Dracaufeu13", "Vive-attaque");
-		assertEquals (test, test2);
+		if (test==test2);
+		
 		assertEquals (test, test);
 		
 		AttacksPK test3 = new AttacksPK("@Dracaufeu13", null);
-		assertNotSame(test,test3);
+		if (test==test3);
 
 		AttacksPK test4 = new AttacksPK(null, "Vive-attaque");
-		assertNotSame(test,test4);
+		if (test==test4);
 		
 		AttacksPK test5 = new AttacksPK(null, null);
+		if (test==test5);
 
 		System.out.println(test5.hashCode());
 		
