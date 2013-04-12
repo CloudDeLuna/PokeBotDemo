@@ -78,6 +78,8 @@ public class OwnerTest {
 			own.setPokemon(null);
 			if(own.equals(sacha))
 				assertTrue(true);
+			if(sacha.equals(own))
+				assertTrue(true);
 			
 			if(own.equals(daoP.getByNom("@Dracaufeu13")))
 				assertTrue(true);
