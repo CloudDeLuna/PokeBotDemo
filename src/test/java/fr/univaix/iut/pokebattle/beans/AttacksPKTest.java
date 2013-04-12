@@ -1,6 +1,7 @@
 package fr.univaix.iut.pokebattle.beans;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
 
 import org.junit.Test;
 
@@ -14,6 +15,9 @@ public class AttacksPKTest {
 		assertEquals("Flammeche", test.getAttack());
 		assertEquals("@GwenGoupix", test.getPoke());
 
+		System.out.println(test.toString());
+		System.out.println(test.hashCode());
+		
 		test.setAttack("Vive-attaque");
 		test.setPoke("@Dracaufeu13");
 		
@@ -22,8 +26,18 @@ public class AttacksPKTest {
 		
 		AttacksPK test2 = new AttacksPK("@Dracaufeu13", "Vive-attaque");
 		assertEquals (test, test2);
+		assertEquals (test, test);
 		
-		System.out.println(test.toString());
-		System.out.println(test.hashCode());
+		AttacksPK test3 = new AttacksPK("@Dracaufeu13", null);
+		assertNotSame(test,test3);
+
+		AttacksPK test4 = new AttacksPK(null, "Vive-attaque");
+		assertNotSame(test,test4);
+		
+		AttacksPK test5 = new AttacksPK(null, null);
+
+		System.out.println(test5.hashCode());
+		
+		assertNotSame(null,test3);
 	}
 }

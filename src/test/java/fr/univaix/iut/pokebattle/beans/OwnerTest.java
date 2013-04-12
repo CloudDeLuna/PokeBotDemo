@@ -1,6 +1,7 @@
 package fr.univaix.iut.pokebattle.beans;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
 
 import java.sql.Connection;
 
@@ -65,7 +66,26 @@ public class OwnerTest {
 			daoO.persist(sacha);
 			
 			assertEquals(daoO.getByPokemon(daoP.getByNom("INCONNU")), sacha);
+			Owner own = daoO.getByPokemon(daoP.getByNom("@GwenGoupix"));
+			assertNotSame(own, sacha);
+			System.out.println(sacha.hashCode());
+			
+			own.setPrenom("cc");
+			assertNotSame(own, sacha);
+			own.setPrenom(null);
+			assertNotSame(own, sacha);
+			
+			own.setPokemon(daoP.getByNom("@Dracaufeu13"));
+			assertNotSame(own, sacha);
+			own.setPokemon(null);
+			assertNotSame(own, sacha);
+			
 			System.out.println(sacha.toString());
+	
+			assertNotSame(null, sacha);
+			
+			sacha.setPokemon(null);
+			sacha.setPrenom(null);
 			System.out.println(sacha.hashCode());
 		}
 
