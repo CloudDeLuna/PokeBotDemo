@@ -1,5 +1,7 @@
 package fr.univaix.iut.pokebattle.smartcell.NurseCell;
 
+import java.util.Random;
+
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -39,12 +41,14 @@ public class NursePokeCenterCell implements SmartCell {
 			final int dix = 10;
 			
 			int timewu = (Integer.parseInt(nombre[1]) - Integer.parseInt(nombre[0]))/dix;
+			Random r = new Random();
+			int valeur = 0 + r.nextInt(100000000 - 0);
+
 			
 			twitter.updateStatus("@PokeTimer #WakeMeUp "+ timewu +" Min #MaxHealth " 
 									+ nombre[1] 
 											+ " " 
-									+ pokeName + " " 
-											+ owner.getPrenom() + "");			
+									+ pokeName + " " + valeur);			
 			
 		    return pokeName + " come in the #pokecenter /cc " + owner.getPrenom();
 
