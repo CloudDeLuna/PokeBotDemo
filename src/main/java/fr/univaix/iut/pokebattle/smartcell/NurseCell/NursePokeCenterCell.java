@@ -42,7 +42,8 @@ public class NursePokeCenterCell implements SmartCell {
 			
 			int timewu = (Integer.parseInt(nombre[1]) - Integer.parseInt(nombre[0]))/dix;
 			Random r = new Random();
-			int valeur = 0 + r.nextInt(100000000 - 0);
+			int borneSup = 100000000;
+			int valeur = 0 + r.nextInt(borneSup - 0);
 
 			if (valeur == 0)
 			{

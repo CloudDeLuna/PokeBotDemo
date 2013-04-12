@@ -53,7 +53,7 @@ public class PokemonFeatureAttackCell implements SmartCell {
 				  if ( question.getText().contains("#PP")) 
 			  	  { 
 					  return "@" + question.getScreenName() + " #" + attEnCours.getAttack() +  " #PP=" 
-							  + attEnCours.getPP() + "/" + attEnCours.getPPMAX();
+							  + attEnCours.getPPAtt() + "/" + attEnCours.getPPMAX();
 			  	  }
 				  else if ( question.getText().contains("#PRECISION") )
 				  {

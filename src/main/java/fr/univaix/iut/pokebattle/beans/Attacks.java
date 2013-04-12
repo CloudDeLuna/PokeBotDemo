@@ -90,7 +90,7 @@ public class Attacks implements Serializable{
 		precision = precisionn;
 	}
 
-	public String getPP() {
+	public String getPPAtt() {
 		return pP;
 	}
 

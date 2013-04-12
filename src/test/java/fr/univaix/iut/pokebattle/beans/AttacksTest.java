@@ -66,7 +66,7 @@ public class AttacksTest {
 		
 		att.setAttack(attaques.get(0).getAttack());
 		att.setNiveau(attaques.get(0).getNiveau());
-		att.setPP(attaques.get(0).getPP());
+		att.setPP(attaques.get(0).getPPAtt());
 		att.setPPMAX(attaques.get(0).getPPMAX());
 		att.setPrecision(attaques.get(0).getPrecision());
 		att.setPuissance(attaques.get(0).getPuissance());
@@ -75,7 +75,7 @@ public class AttacksTest {
 		assertThat(att.getAttack()).isEqualTo(attaques.get(0).getAttack());
 		assertThat(att.getNiveau()).isEqualTo(attaques.get(0).getNiveau());
 		assertThat(att.getPPMAX()).isEqualTo(attaques.get(0).getPPMAX());
-		assertThat(att.getPP()).isEqualTo(attaques.get(0).getPP());
+		assertThat(att.getPPAtt()).isEqualTo(attaques.get(0).getPPAtt());
 		assertThat(att.getPuissance()).isEqualTo(attaques.get(0).getPuissance());
 		assertThat(att.getPrecision()).isEqualTo(attaques.get(0).getPrecision());
 		
