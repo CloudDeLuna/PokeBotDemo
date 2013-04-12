@@ -32,5 +32,6 @@ public class DataObjectPokemonTest {
 		assertEquals(0.4,poke.getTaille(), 0.01);
 		assertEquals("Feu",poke.getType1());
 		assertEquals(null,poke.getType2());
+		System.out.println(poke.toString());
 	}
 }

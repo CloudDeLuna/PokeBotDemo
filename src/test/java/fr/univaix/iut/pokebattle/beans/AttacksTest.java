@@ -82,7 +82,6 @@ public class AttacksTest {
         assertThat(att.getPokemon().getNom()).isEqualTo("@Dracaufeu13");
         
 		System.out.println(att.toString());
-		System.out.println(att.hashCode());
 	}
 
 }

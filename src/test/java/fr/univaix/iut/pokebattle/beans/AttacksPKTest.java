@@ -16,7 +16,6 @@ public class AttacksPKTest {
 		assertEquals("@GwenGoupix", test.getPoke());
 
 		System.out.println(test.toString());
-		System.out.println(test.hashCode());
 		
 		test.setAttack("Vive-attaque");
 		test.setPoke("@Dracaufeu13");
@@ -34,10 +33,6 @@ public class AttacksPKTest {
 		AttacksPK test4 = new AttacksPK(null, "Vive-attaque");
 		assertNotSame(test,test4);
 		
-		AttacksPK test5 = new AttacksPK(null, null);
-
-		System.out.println(test5.hashCode());
-		
-		assertNotSame(null,test3);
+		assertNotSame(null,test);
 	}
 }

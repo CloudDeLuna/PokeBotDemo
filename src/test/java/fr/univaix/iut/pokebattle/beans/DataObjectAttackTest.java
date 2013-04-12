@@ -19,5 +19,6 @@ public class DataObjectAttackTest {
 		assertEquals("25",attaque.getPp());
 		assertEquals("100",attaque.getPrecision());
 		assertEquals("40",attaque.getPuissance());
+		System.out.println(attaque.toString());
 	}
 }

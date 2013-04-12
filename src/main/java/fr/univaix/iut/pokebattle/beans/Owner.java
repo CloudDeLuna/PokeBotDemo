@@ -59,11 +59,8 @@ public class Owner implements Serializable{
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((pokemon == null) ? 0 : pokemon.hashCode());
-		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
-		return result;
+		  assert false : "hashCode not designed";
+		  return 42;
 	}
 
 	@Override
