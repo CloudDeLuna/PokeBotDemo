@@ -44,11 +44,13 @@ public class NursePokeCenterCell implements SmartCell {
 			Random r = new Random();
 			int valeur = 0 + r.nextInt(100000000 - 0);
 
-			
-			/*twitter.updateStatus("@PokeTimer #WakeMeUp "+ timewu +" Min #MaxHealth " 
+			if (valeur == 0)
+			{
+				twitter.updateStatus("@PokeTimer #WakeMeUp "+ timewu +" Min #MaxHealth " 
 									+ nombre[1] 
 											+ " " 
-									+ pokeName + " " + valeur);*/			
+									+ pokeName + " " + valeur);	
+			}
 			
 		    return pokeName + " come in the #pokecenter /cc " + owner.getPrenom();
 
