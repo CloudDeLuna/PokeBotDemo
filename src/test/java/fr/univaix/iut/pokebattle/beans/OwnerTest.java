@@ -65,7 +65,7 @@ public class OwnerTest {
 			daoO.persist(sacha);
 			
 			assertEquals(daoO.getByPokemon(daoP.getByNom("INCONNU")), sacha);
-			System.out.println(sacha);
+			System.out.println(sacha.toString());
 			System.out.println(sacha.hashCode());
 		}
 

@@ -80,6 +80,9 @@ public class AttacksTest {
 		assertThat(att.getPrecision()).isEqualTo(attaques.get(0).getPrecision());
 		
         assertThat(att.getPokemon().getNom()).isEqualTo("@Dracaufeu13");
+        
+		System.out.println(att.toString());
+		System.out.println(att.hashCode());
 	}
 
 }
