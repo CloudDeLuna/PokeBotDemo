@@ -67,23 +67,22 @@ public class OwnerTest {
 			
 			assertEquals(daoO.getByPokemon(daoP.getByNom("INCONNU")), sacha);
 			Owner own = daoO.getByPokemon(daoP.getByNom("@GwenGoupix"));
-			if (own==sacha);
+			assertNotSame(own, sacha);
 			System.out.println(sacha.hashCode());
 			
 			own.setPrenom("cc");
-			if (own==sacha);
+			assertNotSame(own, sacha);
 			own.setPrenom(null);
-			if (own==sacha);
+			assertNotSame(own, sacha);
 			
 			own.setPokemon(daoP.getByNom("@Dracaufeu13"));
-			if (own==sacha);
-			
+			assertNotSame(own, sacha);
 			own.setPokemon(null);
-			if (own==sacha);
+			assertNotSame(own, sacha);
 			
 			System.out.println(sacha.toString());
 	
-			if (own==sacha);
+			assertNotSame(null, sacha);
 			
 			sacha.setPokemon(null);
 			sacha.setPrenom(null);
