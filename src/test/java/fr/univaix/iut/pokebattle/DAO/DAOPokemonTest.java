@@ -28,6 +28,7 @@ public class DAOPokemonTest {
     private static EntityManagerFactory entityManagerFactory;
 
     private DAOPokemon dao = DAOFactory.createDAOPokemon();
+    private DAOOwner daoO = DAOFactory.createDAOOwner();
 
     @BeforeClass
     public static void initTestFixture() throws Exception {
@@ -88,9 +89,10 @@ public class DAOPokemonTest {
         assertThat(dao.getByNom("@GwenGoupix").getAttack()).isLessThan(0);
     }
     
-    /*@Test
+    @Test
     public void testDelete() throws Exception {
+    	daoO.delete(daoO.getByPokemon(dao.getByNom("@Dracaufeu13")));
         dao.delete(dao.getByNom("@Dracaufeu13"));
         assertThat(dao.getByNom("@Dracaufeu13")).isNull();
-    }*/
+    }
 }
