@@ -63,6 +63,7 @@ public class OwnerTest {
 		public void test() {
 			Owner sacha = new Owner (daoP.getByNom("INCONNU"), "@Sacha");
 			daoO.persist(sacha);
+			System.out.println(sacha.hashCode());
 			
 			assertEquals(daoO.getByPokemon(daoP.getByNom("INCONNU")), sacha);
 			Owner own = daoO.getByPokemon(daoP.getByNom("@GwenGoupix"));
@@ -80,6 +81,7 @@ public class OwnerTest {
 				assertTrue(true);
 			if(sacha.equals(own))
 				assertTrue(true);
+			System.out.println(own.hashCode());
 			
 			if(own.equals(daoP.getByNom("@Dracaufeu13")))
 				assertTrue(true);
