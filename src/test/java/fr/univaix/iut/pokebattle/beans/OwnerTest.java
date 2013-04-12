@@ -67,30 +67,11 @@ public class OwnerTest {
 			
 			assertEquals(daoO.getByPokemon(daoP.getByNom("INCONNU")), sacha);
 			Owner own = daoO.getByPokemon(daoP.getByNom("@GwenGoupix"));
-			if(own.equals(sacha))
-				assertTrue(true);
-			
-			own.setPrenom("cc");
-			own.setPokemon(null);
-			if(own.equals(sacha))
-				assertTrue(true);
-			
+		
 			own.setPrenom(null);
 			own.setPokemon(null);
-			if(own.equals(sacha))
-				assertTrue(true);
-			if(sacha.equals(own))
-				assertTrue(true);
+
 			System.out.println(own.hashCode());
-			
-			if(own.equals(daoP.getByNom("@Dracaufeu13")))
-				assertTrue(true);
-			
-			own.setPrenom(null);
-			own.setPokemon(daoP.getByNom("@Dracaufeu13"));
-			if(own.equals(sacha))
-				assertTrue(true);
-			
 			System.out.println(sacha.toString());
 		}
 
