@@ -100,18 +100,8 @@ public class Attacks implements Serializable{
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((attack == null) ? 0 : attack.hashCode());
-		result = prime * result + ((niveau == null) ? 0 : niveau.hashCode());
-		result = prime * result + ((pP == null) ? 0 : pP.hashCode());
-		result = prime * result + ((pPMAX == null) ? 0 : pPMAX.hashCode());
-		result = prime * result + ((poke == null) ? 0 : poke.hashCode());
-		result = prime * result
-				+ ((precision == null) ? 0 : precision.hashCode());
-		result = prime * result
-				+ ((puissance == null) ? 0 : puissance.hashCode());
-		return result;
+		  assert false : "hashCode not designed";
+		  return 42;
 	}
 
 	@Override

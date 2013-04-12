@@ -23,9 +23,7 @@ public class NursePVCell implements SmartCell {
 			Owner owner = daoOwn.getByPokemon(poke);
 
 			if ( owner.getPrenom().equals("@" + question.getScreenName())) 
-			{
-				poke = daoPoke.getByNom(phrase[2]);
-				
+			{				
 		        return phrase[2] + " #stat #PV ?" ;
 			}
 

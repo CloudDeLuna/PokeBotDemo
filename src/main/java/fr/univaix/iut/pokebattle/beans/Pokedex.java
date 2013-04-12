@@ -24,7 +24,7 @@ public final class Pokedex {
 	
 	public static Pokedex getInstance()
 	{
-		if (pok != null)
+		if (null != pok)
 		{
 			return pok;
 		}
@@ -51,12 +51,8 @@ public final class Pokedex {
 	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((br == null) ? 0 : br.hashCode());
-		result = prime * result + Arrays.hashCode(data);
-		result = prime * result + ((gson == null) ? 0 : gson.hashCode());
-		return result;
+		  assert false : "hashCode not designed";
+		  return 42;
 	}
 
 	@Override

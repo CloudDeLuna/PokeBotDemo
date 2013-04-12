@@ -114,14 +114,8 @@ public class Combat implements Serializable {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + idCombat;
-		result = prime * result + ((owner1 == null) ? 0 : owner1.hashCode());
-		result = prime * result + ((owner2 == null) ? 0 : owner2.hashCode());
-		result = prime * result + ((poke1 == null) ? 0 : poke1.hashCode());
-		result = prime * result + ((poke2 == null) ? 0 : poke2.hashCode());
-		return result;
+		  assert false : "hashCode not designed";
+		  return 42;
 	}
 
 	@Override
@@ -130,8 +124,5 @@ public class Combat implements Serializable {
 				+ ", Owner_1=" + owner1 + ", Poke_2=" + poke2.getNom() + ", Owner_2="
 				+ owner2 + "]";
 	}
-
-
-	
 	
 }

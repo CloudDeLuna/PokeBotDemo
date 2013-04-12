@@ -111,20 +111,10 @@ public class Pokemon implements Serializable{
 				+ ", defenseSpecial=" + defenseSpecial + ", speed=" + speed
 				+ "]";
 	}
+	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + attack;
-		result = prime * result + attackSpecial;
-		result = prime * result + defense;
-		result = prime * result + defenseSpecial;
-		result = prime * result + niveau;
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		result = prime * result + pV;
-		result = prime * result + ((race == null) ? 0 : race.hashCode());
-		result = prime * result + speed;
-		result = prime * result + xP;
-		return result;
+		  assert false : "hashCode not designed";
+		  return 42;
 	}
 }
