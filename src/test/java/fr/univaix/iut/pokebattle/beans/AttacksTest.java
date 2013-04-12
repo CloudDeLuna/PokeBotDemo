@@ -1,8 +1,9 @@
-package fr.univaix.iut.pokebattle.smartcell.PokeCell;
+package fr.univaix.iut.pokebattle.beans;
 
-import static org.junit.Assert.assertEquals;
+import static org.fest.assertions.Assertions.assertThat;
 
 import java.sql.Connection;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,20 +19,18 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
-import twitter4j.TwitterException;
+import fr.univaix.iut.pokebattle.DAO.DAOAttacks;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
-import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonAttackCell;
-import fr.univaix.iut.pokebattle.twitter.Tweet;
+import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
 
-public class PokemonAttackCellTest {
-
-	PokemonAttackCell cell = new PokemonAttackCell();
-
-	   private static EntityManager entityManager;
+public class AttacksTest {
+	 private static EntityManager entityManager;
 	    private static FlatXmlDataSet dataset;
 	    private static DatabaseConnection dbUnitConnection;
 	    private static EntityManagerFactory entityManagerFactory;
+
+	    private DAOAttacks dao = DAOFactory.createDAOAttacks();
+	    private DAOPokemon daoP = DAOFactory.createDAOPokemon();
 
 	    @BeforeClass
 	    public static void initTestFixture() throws Exception {
@@ -41,7 +40,6 @@ public class PokemonAttackCellTest {
 	        Connection connection = ((EntityManagerImpl) (entityManager.getDelegate())).getServerSession().getAccessor().getConnection();
 
 	        dbUnitConnection = new DatabaseConnection(connection);
-	        //Loads the data set from a file
 
 	        dataset = new FlatXmlDataSetBuilder().build(Thread.currentThread()
 	                .getContextClassLoader()
@@ -60,10 +58,28 @@ public class PokemonAttackCellTest {
 	    public void setUp() throws Exception {
 	        DatabaseOperation.CLEAN_INSERT.execute(dbUnitConnection, dataset);
 	    }
-	
-		@Test
-		public void testAttack() throws IllegalStateException, TwitterException {		
-			assertEquals("@Smogogo13 #attack #Flammeche /cc @cybsip @CloudDeLuna @Kyiio", (cell.ask(new Tweet("CloudDeLuna",
-					"@GwenGoupix #attack #Flammeche @Smogogo13 /cc @cybsip @Kyiio"))));
-		}
+
+	@Test
+	public void test() {
+		Attacks att = new Attacks();
+		List<Attacks> attaques = dao.findAll();
+		
+		att.setAttack(attaques.get(0).getAttack());
+		att.setNiveau(attaques.get(0).getNiveau());
+		att.setPP(attaques.get(0).getPP());
+		att.setPPMAX(attaques.get(0).getPPMAX());
+		att.setPrecision(attaques.get(0).getPrecision());
+		att.setPuissance(attaques.get(0).getPuissance());
+		att.setPokemon(daoP.getByNom("@Dracaufeu13"));
+		
+		assertThat(att.getAttack()).isEqualTo(attaques.get(0).getAttack());
+		assertThat(att.getNiveau()).isEqualTo(attaques.get(0).getNiveau());
+		assertThat(att.getPPMAX()).isEqualTo(attaques.get(0).getPPMAX());
+		assertThat(att.getPP()).isEqualTo(attaques.get(0).getPP());
+		assertThat(att.getPuissance()).isEqualTo(attaques.get(0).getPuissance());
+		assertThat(att.getPrecision()).isEqualTo(attaques.get(0).getPrecision());
+		
+        assertThat(att.getPokemon().getNom()).isEqualTo("@Dracaufeu13");
+	}
+
 }

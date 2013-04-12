@@ -42,7 +42,8 @@ public class JudgeBotWinnerCell implements SmartCell {
 	        	}
 	        }
 	        
-	        int exp = expval*niveau/7;
+	        final int sept = 7;
+	        int exp = expval*niveau/sept;
 	       
 	        
 			return vainqueur + " #Win +" + exp + "xp";			

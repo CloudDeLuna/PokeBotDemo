@@ -1,6 +1,6 @@
-package fr.univaix.iut.pokebattle.smartcell.PokeCell;
+package fr.univaix.iut.pokebattle.beans;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.sql.Connection;
 
@@ -18,17 +18,16 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
-import twitter4j.TwitterException;
 import fr.univaix.iut.pokebattle.DAO.DAOFactory;
-import fr.univaix.iut.pokebattle.smartcell.PokeCell.PokemonAttackCell;
-import fr.univaix.iut.pokebattle.twitter.Tweet;
+import fr.univaix.iut.pokebattle.DAO.DAOOwner;
+import fr.univaix.iut.pokebattle.DAO.DAOPokemon;
 
-public class PokemonAttackCellTest {
-
-	PokemonAttackCell cell = new PokemonAttackCell();
-
-	   private static EntityManager entityManager;
+public class OwnerTest {
+	
+		DAOPokemon daoP = DAOFactory.createDAOPokemon();
+		DAOOwner daoO = DAOFactory.createDAOOwner();
+		
+	   	private static EntityManager entityManager;
 	    private static FlatXmlDataSet dataset;
 	    private static DatabaseConnection dbUnitConnection;
 	    private static EntityManagerFactory entityManagerFactory;
@@ -41,11 +40,10 @@ public class PokemonAttackCellTest {
 	        Connection connection = ((EntityManagerImpl) (entityManager.getDelegate())).getServerSession().getAccessor().getConnection();
 
 	        dbUnitConnection = new DatabaseConnection(connection);
-	        //Loads the data set from a file
 
 	        dataset = new FlatXmlDataSetBuilder().build(Thread.currentThread()
 	                .getContextClassLoader()
-	                .getResourceAsStream("pokemonDataSet.xml"));
+	                .getResourceAsStream("pokemonMortDataSet.xml"));
 	        
 	        DAOFactory.setEntityManager(entityManager);
 	    }
@@ -60,10 +58,15 @@ public class PokemonAttackCellTest {
 	    public void setUp() throws Exception {
 	        DatabaseOperation.CLEAN_INSERT.execute(dbUnitConnection, dataset);
 	    }
-	
+	    
 		@Test
-		public void testAttack() throws IllegalStateException, TwitterException {		
-			assertEquals("@Smogogo13 #attack #Flammeche /cc @cybsip @CloudDeLuna @Kyiio", (cell.ask(new Tweet("CloudDeLuna",
-					"@GwenGoupix #attack #Flammeche @Smogogo13 /cc @cybsip @Kyiio"))));
+		public void test() {
+			Owner sacha = new Owner (daoP.getByNom("INCONNU"), "@Sacha");
+			daoO.persist(sacha);
+			
+			assertEquals(daoO.getByPokemon(daoP.getByNom("INCONNU")), sacha);
+			System.out.println(sacha);
+			System.out.println(sacha.hashCode());
 		}
+
 }
